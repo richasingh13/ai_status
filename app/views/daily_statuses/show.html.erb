@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="col-md-4 offset-4">
+    <div class="card shadow">
+      <p id="notice"><%= notice %>
+      </p>
+      <div class="card-body">
+        <p>
+          <strong>In time:</strong>
+          <%= @daily_status.in_time %>
+        </p>
+
+        <p>
+          <strong>Out time:</strong>
+          <%= @daily_status.out_time %>
+        </p>
+
+        <p>
+          <strong>Break:</strong>
+          <%= @daily_status.break %>
+        </p>
+        <%= link_to 'Edit', edit_daily_status_path(@daily_status), class: "btn btn-info" %> |
+        <%= link_to 'Back', daily_statuses_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  in_time: 2019-01-18 12:37:40
+  out_time: 2019-01-18 12:37:40
+  break: MyString
+  user: 
+
+two:
+  in_time: 2019-01-18 12:37:40
+  out_time: 2019-01-18 12:37:40
+  break: MyString
+  user: 
