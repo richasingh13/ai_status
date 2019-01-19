@@ -1,3 +1,48 @@
 <div class="jumbotron">
-  <h2 class="text-center">My Daily Status Feed</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 mx-md-auto">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <%= image_tag "user-dummy.png", class: "img-fluid rounded-circle" %>
+            <h6 class="font-weight-bold mt-2"><%= current_user.email %></h6>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-primary" %>
+            <%= link_to "View Profile", profile_path(user_id: current_user.id), class: "btn btn-sm btn-primary" %>
+          </div>
+          <div class="col-md-8">
+            <h2 class="text-center">My Daily Status Feed</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>In time</th>
+        <th>Out time</th>
+        <th>Break</th>
+        <th>Status Date</th>
+        <th colspan="2"></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @daily_statuses.each do |daily_status| %>
+        <tr>
+          <td><%= daily_status.in_time %></td>
+          <td><%= daily_status.out_time %></td>
+          <td><%= daily_status.break %></td>
+          <td><%= daily_status.status_date %></td>
+          <td><%= link_to 'Show', daily_status %></td>
+          <td><%= link_to 'Edit', edit_daily_status_path(daily_status) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+

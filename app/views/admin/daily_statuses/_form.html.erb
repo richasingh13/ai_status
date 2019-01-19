@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-2">
-    <%= form_with(model: daily_status, local: true) do |f| %>
+    <%= form_for [:admin, daily_status] do |f| %>
       <% if daily_status.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(daily_status.errors.count, "error") %> prohibited this daily_status from being saved:</h2>

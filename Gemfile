@@ -72,4 +72,8 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'completeness_model', '~> 0.0.0'
 gem "cocoon"
+gem 'jquery-ui-rails'
+gem 'carrierwave', '~> 1.0'
+
+
 

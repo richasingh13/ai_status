@@ -10,12 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require rails-ujs
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require moment-with-locales.min
+//= require tempusdominus-bootstrap-4
 //= require jquery.timepicker
-//= require rails-ujs
 //= require cocoon
-//= require activestorage
-//= require turbolinks
-//= require_tree .
+

@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   resources :daily_statuses
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
-  }
+  devise_for :users, skip: :registrations
 
-  root 'home#index' 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'home#index'
+
+   namespace :admin do
+    resources :daily_statuses
+    resources :users
+  end   
+  
+  # non-resource custom routes
+  get '/profile' => "home#profile"
+
 end
