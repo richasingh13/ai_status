@@ -7,7 +7,7 @@
             <%= image_tag "user-dummy.png", class: "img-fluid rounded-circle" %>
             <h6 class="font-weight-bold mt-2"><%= current_user.email %></h6>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-primary" %>
-            <%= link_to "View Profile", profile_path(user_id: current_user.id), class: "btn btn-sm btn-primary" %>
+            <%= link_to "View Profile", profile_path, class: "btn btn-sm btn-primary" %>
           </div>
           <div class="col-md-8">
             <h2 class="">My Daily Status Feed</h2>
@@ -28,11 +28,9 @@
             <th>Out time</th>
             <th>Break</th>
             <th>Status Date</th>
-            <th colspan="2"></th>
-
+            <th>Actions</th>
           </tr>
         </thead>
-
         <tbody>
           <% @daily_statuses.each do |daily_status| %>
             <tr>
@@ -40,8 +38,25 @@
               <td><%= daily_status.out_time %></td>
               <td><%= daily_status.break %></td>
               <td><%= daily_status.status_date %></td>
-              <td><%= link_to 'Show', daily_status %></td>
-              <td><%= link_to 'Edit', edit_daily_status_path(daily_status) %></td>
+              <td>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary btn-sm">Actions</button>
+                  <button 
+                    type="button" 
+                    class="btn btn-primary btn-sm dropdown-toggle dropdown-toggle-split"
+                    id="dropdownMenuReference" 
+                    data-toggle="dropdown" 
+                    aria-haspopup="true" 
+                    aria-expanded="false" 
+                    data-reference="parent">
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                    <%= link_to "Show", daily_status, class: "dropdown-item" %>
+                    <%= link_to "Edit", edit_daily_status_path(daily_status), class: "dropdown-item" %>
+                  </div>
+                </div>
+              </td>
             </tr>
           <% end %>
         </tbody>

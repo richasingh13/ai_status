@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   
   # non-resource custom routes
   get '/profile' => "home#profile"
+  get '/edit-profile' => "home#edit_profile"
+  patch 'home/update_profile'
 
 end

@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :contact, :permanent_address, :current_address, :city, :state, :country, :gender, :date_of_joining, :date_of_birth, presence: true
 
+  GENDER = ["Male", "Female", "Transgender"]
+
 end
