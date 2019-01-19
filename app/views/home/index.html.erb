@@ -10,7 +10,8 @@
             <%= link_to "View Profile", profile_path(user_id: current_user.id), class: "btn btn-sm btn-primary" %>
           </div>
           <div class="col-md-8">
-            <h2 class="text-center">My Daily Status Feed</h2>
+            <h2 class="">My Daily Status Feed</h2>
+            <%= link_to "Add Daily Status", new_daily_status_path, class: "btn btn-sm btn-primary" %>
           </div>
         </div>
       </div>

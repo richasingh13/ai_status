@@ -2,28 +2,20 @@ class DailyStatusesController < ApplicationController
   before_action :set_daily_status, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  # GET /daily_statuses
-  # GET /daily_statuses.json
   def index
-    @daily_statuses = DailyStatus.all
+    @daily_statuses = current_user.daily_statuses.all
   end
 
-  # GET /daily_statuses/1
-  # GET /daily_statuses/1.json
   def show
   end
 
-  # GET /daily_statuses/new
   def new
     @daily_status = DailyStatus.new
   end
 
-  # GET /daily_statuses/1/edit
   def edit
   end
 
-  # POST /daily_statuses
-  # POST /daily_statuses.json
   def create
     @daily_status = current_user.daily_statuses.new(daily_status_params)
 
@@ -38,8 +30,6 @@ class DailyStatusesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /daily_statuses/1
-  # PATCH/PUT /daily_statuses/1.json
   def update
     respond_to do |format|
       if @daily_status.update(daily_status_params)
@@ -52,8 +42,6 @@ class DailyStatusesController < ApplicationController
     end
   end
 
-  # DELETE /daily_statuses/1
-  # DELETE /daily_statuses/1.json
   def destroy
     @daily_status.destroy
     respond_to do |format|
@@ -63,12 +51,11 @@ class DailyStatusesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_daily_status
       @daily_status = DailyStatus.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def daily_status_params
       params.require(:daily_status).permit!
     end
