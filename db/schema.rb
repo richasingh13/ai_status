@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2019_01_18_120715) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "daily_statuses", force: :cascade do |t|
     t.string "in_time"
     t.string "out_time"
     t.string "break"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "status_date"
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_01_18_120715) do
     t.string "title"
     t.string "description"
     t.string "status"
-    t.integer "daily_status_id"
+    t.bigint "daily_status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["daily_status_id"], name: "index_tasks_on_daily_status_id"
@@ -50,4 +53,6 @@ ActiveRecord::Schema.define(version: 2019_01_18_120715) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "daily_statuses", "users"
+  add_foreign_key "tasks", "daily_statuses"
 end

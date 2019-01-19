@@ -1,6 +1,3 @@
-production:
-  <<: *default
-  database: db/production.sqlite3
 default: &default
   adapter:  postgresql
   host:     localhost
@@ -11,12 +8,12 @@ default: &default
 
 development:
   <<: *default
-  database: ai_status_dev
+  database: aistatus_dev
 
 test:
   <<: *default
-  database: ai_status_test
+  database: aistatus_test
 
 production:
   <<: *default
-  database: ai_status_prod
+  database: aistatus_prod
