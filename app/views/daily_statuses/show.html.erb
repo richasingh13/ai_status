@@ -1,23 +1,50 @@
 <div class="container">
-  <div class="col-md-4 offset-4">
-    <div class="card shadow">
-      <p id="notice"><%= notice %>
-      </p>
+  <div class="col-md-8 mx-md-auto">
+    <div class="card shadow rounded-0">
       <div class="card-body">
+        <h4>Daily Status for <%= @daily_status.status_date.strftime("%d %B %Y") %> </h4>
         <p>
           <strong>In time:</strong>
           <%= @daily_status.in_time %>
-        </p>
-
-        <p>
           <strong>Out time:</strong>
           <%= @daily_status.out_time %>
-        </p>
-
-        <p>
           <strong>Break:</strong>
           <%= @daily_status.break %>
         </p>
+
+        <div class="row mb-4 mt-2">
+          <div class="col-12">
+            <h4 class="text-muted">Tasks</h4>
+            <div class="accordion" id="taskAccordian">
+              <% @daily_status.tasks.each do |task| %>
+                <div class="card">
+                  <div class="card-header" id="heading_<%= task.id %>">
+                    <h5 class="mb-0">
+                      <button 
+                        class="btn btn-link" 
+                        type="button" 
+                        data-toggle="collapse" 
+                        data-target="#collapse_<%= task.id %>" aria-expanded="true" 
+                        aria-controls="collapse_<%= task.id %>">
+                        <%= task.title %>
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div 
+                    id="collapse_<%= task.id %>" 
+                    class="collapse" 
+                    aria-labelledby="heading_<%= task.id %>" data-parent="#taskAccordian">
+                    <div class="card-body">
+                      <p><strong>Status:</strong> <%= task.status %> </p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
         <%= link_to 'Edit', edit_daily_status_path(@daily_status), class: "btn btn-info" %> |
         <%= link_to 'Back', daily_statuses_path, class: "btn btn-secondary" %>
       </div>
