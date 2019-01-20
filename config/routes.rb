@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :education_credentials
   resources :daily_statuses
   devise_for :users, skip: :registrations
 

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @education_credential.course %>
+</p>
+
+<p>
+  <strong>University:</strong>
+  <%= @education_credential.university %>
+</p>
+
+<p>
+  <strong>Percentage:</strong>
+  <%= @education_credential.percentage %>
+</p>
+
+<p>
+  <strong>Course type:</strong>
+  <%= @education_credential.course_type %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @education_credential.user %>
+</p>
+
+<%= link_to 'Edit', edit_education_credential_path(@education_credential) %> |
+<%= link_to 'Back', education_credentials_path %>
