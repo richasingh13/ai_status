@@ -1,0 +1,42 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content rounded-0">
+    <div class="modal-header">
+      <h5 class="modal-title" id="addressInfoModalLabel">Edit Address Information</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <%= form_for @user, url: :update_address_info, method: :patch do |f| %>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Permanent Address</label>
+          <%= f.text_field :permanent_address, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <label>Current Address</label>
+          <%= f.text_field :current_address, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <label>City</label>
+          <%= f.text_field :city, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <label>State</label>
+          <%= f.text_field :state, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <label>Country</label>
+          <%= f.text_field :country, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <label>Nationality</label>
+          <%= f.text_field :nationality, class: "form-control rounded-0" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary rounded-0">Save changes</button>
+      </div>
+    <% end %>
+  </div>
+</div>

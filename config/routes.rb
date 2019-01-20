@@ -14,4 +14,12 @@ Rails.application.routes.draw do
   get '/edit-profile' => "home#edit_profile"
   patch 'home/update_profile'
 
+  get '/edit_job_info' => "user_profile#edit_job_info"
+  get '/edit_personal_info' => "user_profile#edit_personal_info"
+  get '/edit_address_info' => "user_profile#edit_address_info"
+
+  patch '/update_personal_info' => "user_profile#update_personal_info"
+  patch '/update_address_info' => "user_profile#update_address_info"
+  patch '/update_job_info' => "user_profile#update_job_info"
+
 end

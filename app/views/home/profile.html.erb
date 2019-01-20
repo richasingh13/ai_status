@@ -29,7 +29,7 @@
                 <strong>Gender:</strong>
                 <%= @user.gender %>
               </p>
-              <%= link_to "Edit Personal Information", "", class: "btn btn-primary rounded-0 shadow mb-3 mt-3" %>
+              <%= link_to "Edit Personal Information", edit_personal_info_path, class: "btn btn-primary rounded-0 shadow mb-3 mt-3", data: { toggle: "modal", target: "#personalInfoModal", remote: true } %>
             </div>
           </div>
           <div class="card shadow rounded-0 mt-5 mb-5">
@@ -61,7 +61,7 @@
                 <strong>Nationality:</strong>
                 <%= @user.nationality %>
               </p>
-              <%= link_to "Edit Address Information", "", class: "btn btn-primary rounded-0 shadow mb-3 mt-3" %>
+              <%= link_to "Edit Address Information", edit_address_info_path, class: "btn btn-primary rounded-0 shadow mb-3 mt-3", data: { toggle: "modal", target: "#addressInfoModal", remote: true } %>
             </div>
           </div>
           <div class="card shadow rounded-0 mt-5 mb-5">
@@ -81,7 +81,7 @@
                 <strong>Job Description:</strong>
                 <%= @user.job_description %>
               </p>
-              <%= link_to "Edit Job Information", "", class: "btn btn-primary rounded-0 shadow mb-3 mt-3" %>
+              <%= link_to "Edit Job Information", edit_job_info_path, class: "btn btn-primary rounded-0 shadow mb-3 mt-3", data: { toggle: "modal", target: "#jobInfoModal", remote: true } %>
             </div>
           </div>
         </div>
@@ -96,4 +96,31 @@
       </div>
     </div>
   </div>
+</div>
+
+<div 
+  class="modal fade" 
+  id="jobInfoModal" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="jobInfoModalLabel" 
+  aria-hidden="true">
+</div>
+
+<div 
+  class="modal fade" 
+  id="addressInfoModal" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="addressInfoModalLabel" 
+  aria-hidden="true">
+</div>
+
+<div 
+  class="modal fade" 
+  id="personalInfoModal" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="personalInfoModalLabel" 
+  aria-hidden="true">
 </div>

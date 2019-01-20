@@ -1,0 +1,84 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content rounded-0">
+    <div class="modal-header">
+      <h5 class="modal-title" id="personalInfoModalLabel">Edit Personal Information</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <%= form_for @user, url: :update_personal_info, method: :patch do |f| %>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <label>Name</label>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.text_field :first_name, class: "form-control rounded-0", placeholder: "First Name" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.text_field :last_name, class: "form-control rounded-0", placeholder: "Last Name" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <%= f.text_field :email, class: "form-control rounded-0" %>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Password</label>
+              <%= f.password_field :password, class: "form-control rounded-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Password Confirm</label>
+              <%= f.password_field :password_confirmation, class: "form-control rounded-0" %>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Contact</label>
+              <%= f.text_field :contact, class: "form-control rounded-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Profile Photo</label><br>
+              <%= f.file_field :profile_pic %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Date of Birth</label>
+              <%= f.date_field :date_of_birth, class: "form-control rounded-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Date of Birth</label>
+              <%= f.select :gender, options_for_select(User::GENDER, selected: @user.gender), { prompt: "Select Gender" }, { class: "form-control rounded-0" } %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary rounded-0">Save changes</button>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content rounded-0">
+    <div class="modal-header">
+      <h5 class="modal-title" id="jobInfoModalLabel">Edit Job Information</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <%= form_for @user, url: :update_job_info, method: :patch do |f| %>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Designation</label>
+          <%= f.text_field :designation, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <label>Date of Joining</label>
+          <%= f.date_field :date_of_joining, class: "form-control rounded-0" %>
+        </div>
+        <div class="form-group">
+          <label>Job Description</label>
+          <%= f.text_area :job_description, class: "form-control rounded-0", rows: "7" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary rounded-0">Save changes</button>
+      </div>
+    <% end %>
+  </div>
+</div>
