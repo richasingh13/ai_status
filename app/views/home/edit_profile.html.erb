@@ -2,6 +2,11 @@
   <div class="row">
     <div class="col-md-8">
       <%= form_for @user, url: :home_update_profile, method: :patch do |f| %>
+        <% if @user.errors.present? %>
+          <% @user.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+          <% end %>
+        <% end %>
         <div class="card shadow rounded-0 mt-4 mb-3">
           <div class="card-body">
             <h5 class="text-muted">Personal Information</h5>
@@ -37,7 +42,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <%= f.label :date_of_birth %>
-                  <%= f.text_field :date_of_birth, class: "form-control rounded-0", id: "date_of_birth", data: { toggle: "datetimepicker", target: "#date_of_birth" } %>
+                  <%= f.date_field :date_of_birth, class: "form-control rounded-0" %>
                 </div>
               </div>
               <div class="col-md-6">
@@ -137,7 +142,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <%= f.label :date_of_joining %>
-                  <%= f.text_field :date_of_joining, class: "form-control rounded-0", id: "date_of_joining", data: { toggle: "datetimepicker", target: "#date_of_joining" } %>
+                  <%= f.date_field :date_of_joining, class: "form-control rounded-0" %>
                 </div>
               </div>
             </div>
@@ -173,18 +178,3 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  $(function () {
-    $('#date_of_joining').datetimepicker({
-      format: 'L'
-    });
-  });
-</script>
-<script type="text/javascript">
-  $(function () {
-    $('#date_of_birth').datetimepicker({
-      format: 'L'
-    });
-  });
-</script>

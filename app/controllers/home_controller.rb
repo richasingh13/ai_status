@@ -13,7 +13,6 @@ class HomeController < ApplicationController
   end
 
   def update_profile
-    byebug
     if @user.update(user_params)
       redirect_to root_path, flash: { success: "Your profile has been updated successfully!" }
     else

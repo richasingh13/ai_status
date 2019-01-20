@@ -1,72 +1,98 @@
 <div class="container">
-  <div class="col-md-8 offset-4">
-    <div class="card shadow">
-      <p id="notice"><%= notice %></p>
-      <div  class="card-img-top">
-        <%= @user.profile_pic%>
-      </div>       
-      <div class="card-body">
-        <p>
-          <strong>First name:</strong>
-          <%= @user.first_name %>
-        </p>
-        <p>
-          <strong>Last name:</strong>
-          <%= @user.last_name %>
-        </p>
-        <p>
-          <strong>Contact:</strong>
-          <%= @user.contact %>
-        </p>
-        <p>
-          <strong>Designation:</strong>
-          <%= @user.designation %>
-        </p>
-        <p>
-          <strong>Date of joining:</strong>
-          <%= @user.date_of_joining %>
-        </p>
-        <p>
-          <strong>date_of_birth:</strong>
-          <%= @user.date_of_birth %>
-        </p>
-        <p>
-          <strong>Job Description:</strong>
-          <%= @user.job_description %>
-        </p>
-        <p>
-          <strong>Permanent Address:</strong>
-          <%= @user.permanent_address %>
-        </p>
-        <p>
-          <strong>Current Address:</strong>
-          <%= @user.current_address %>
-        </p>
-        <p>
-          <strong>City:</strong>
-          <%= @user.city %>
-        </p>
-        <p>
-          <strong>State:</strong>
-          <%= @user.state %>
-        </p>
-        <p>
-          <strong>Country:</strong>
-          <%= @user.country %>
-        </p>
-        <p>
-          <strong>Nationality:</strong>
-          <%= @user.nationality %>
-        </p>
-
-        <p>
-          <strong>Gender:</strong>
-          <%= @user.gender %>
-        </p>
-      </div>
-      <div class="card-footer float-right">
-        <%= link_to 'Edit', '/edit-profile', class: "btn btn-primary" %> 
-        <%= link_to 'Back', root_path, class: "btn btn-primary" %>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-12">
+      <div class="row">
+        <div class="col-md-4 col-12 col-sm-12 col-lg-4">
+          <div class="card shadow rounded-0 mt-5 mb-5">
+            <div class="card-body">
+              <div class="text-center">
+                <h6 class="text-muted font-weight-bold">Personal Information</h6>
+                <%= image_tag "user-dummy.png", class: "img-fluid rounded-circle mb-3", style: "width:50%;" %>
+              </div>
+              <p>
+                <strong>Name:</strong>
+                <%= @user.name %>
+              </p>
+              <p>
+                <strong>Contact:</strong>
+                <%= @user.contact %>
+              </p>
+              <p>
+                <strong>Email:</strong>
+                <%= @user.email %>
+              </p>
+              <p>
+                <strong>Date of Birth:</strong>
+                <%= @user.date_of_birth %>
+              </p>
+              <p>
+                <strong>Gender:</strong>
+                <%= @user.gender %>
+              </p>
+              <%= link_to "Edit Personal Information", "", class: "btn btn-primary rounded-0 shadow mb-3 mt-3" %>
+            </div>
+          </div>
+          <div class="card shadow rounded-0 mt-5 mb-5">
+            <div class="card-body">
+              <div class="text-center">
+                <h6 class="text-muted font-weight-bold">Address Information</h6>
+              </div>
+              <p>
+                <strong>Permanent Address:</strong>
+                <%= @user.permanent_address %>
+              </p>
+              <p>
+                <strong>Current Address:</strong>
+                <%= @user.current_address %>
+              </p>
+              <p>
+                <strong>City:</strong>
+                <%= @user.city %>
+              </p>
+              <p>
+                <strong>State:</strong>
+                <%= @user.state %>
+              </p>
+              <p>
+                <strong>Country:</strong>
+                <%= @user.country %>
+              </p>
+              <p>
+                <strong>Nationality:</strong>
+                <%= @user.nationality %>
+              </p>
+              <%= link_to "Edit Address Information", "", class: "btn btn-primary rounded-0 shadow mb-3 mt-3" %>
+            </div>
+          </div>
+          <div class="card shadow rounded-0 mt-5 mb-5">
+            <div class="card-body">
+              <div class="text-center">
+                <h6 class="text-muted font-weight-bold">Job Information</h6>
+              </div>
+              <p>
+                <strong>Designation:</strong>
+                <%= @user.designation %>
+              </p>
+              <p>
+                <strong>Date of Joining:</strong>
+                <%= @user.date_of_joining %>
+              </p>
+              <p>
+                <strong>Job Description:</strong>
+                <%= @user.job_description %>
+              </p>
+              <%= link_to "Edit Job Information", "", class: "btn btn-primary rounded-0 shadow mb-3 mt-3" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-12 col-sm-12 col-lg-8">
+          <div class="card shadow rounded-0 mt-5 mb-5">
+            <div class="card-body">
+              <%= link_to "Edit Profile", edit_profile_path, class: "btn btn-primary shadow rounded-0" %>
+              <%= link_to "Home", root_path, class: "btn btn-primary shadow rounded-0" %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
