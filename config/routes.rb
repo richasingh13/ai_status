@@ -8,6 +8,7 @@ Rails.application.routes.draw do
    namespace :admin do
     resources :daily_statuses
     resources :users
+    resources :education_credentials
   end   
   
   # non-resource custom routes

@@ -92,6 +92,13 @@
               <%= link_to "Home", root_path, class: "btn btn-primary shadow rounded-0" %>
             </div>
           </div>
+          <% if @user.education_credentials.present? %>
+            <div class="card shadow rounded-0 mt-5 mb-5">
+              <div class="card-body">
+                <h4 class="text-center text-muted">My Education Credentials</h4>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
