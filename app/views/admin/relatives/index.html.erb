@@ -19,15 +19,15 @@
             <td><%= relative.relation %></td>
             <td><%= relative.contact_number %></td>
             <td><%= relative.address %></td>
-            <td><%= relative.user %></td>
-            <td><%= link_to 'Show', relative %></td>
-            <td><%= link_to 'Edit', edit_relative_path(relative) %></td>
-            <td><%= link_to 'Destroy', relative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= relative.user.name %></td>
+            <td><%= link_to 'Show', admin_relative_path(relative) %></td>
+            <td><%= link_to 'Edit', edit_admin_relative_path(relative) %></td>
+            <td><%= link_to 'Destroy', admin_relative_path(relative), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-  <%= link_to 'New Relative', new_relative_path, class: "btn btn-primary mb-5" %>
+  <%= link_to 'New Relative', new_admin_relative_path, class: "btn btn-primary mb-5" %>
 </div>
 
 

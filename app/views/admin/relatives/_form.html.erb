@@ -7,9 +7,9 @@
             <h2><%= pluralize(relative.errors.count, "error") %> prohibited this relative from being saved:</h2>
 
             <ul>
-            <% relative.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
+              <% relative.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
             </ul>
           </div>
         <% end %>
@@ -19,13 +19,13 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <%= form.label :name %>
-                  <%= form.text_field :name, class: "form-control" %>
+                  <%= form.text_field :name, class: "form-control rounded-0" %>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <%= form.label :relation %>
-                  <%= form.text_field :relation, class: "form-control" %>
+                  <%= form.text_field :relation, class: "form-control rounded-0" %>
                 </div>
               </div>
             </div>
@@ -33,13 +33,13 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <%= form.label :contact_number %>
-                  <%= form.text_field :contact_number, class: "form-control" %>
+                  <%= form.text_field :contact_number, class: "form-control rounded-0" %>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <%= form.label :address %>
-                  <%= form.text_field :address, class: "form-control" %>
+                  <%= form.text_field :address, class: "form-control rounded-0" %>
                 </div>
               </div>
             </div>
@@ -47,16 +47,19 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <%= form.label :user_id %>
-                  <%= form.text_field :user_id, class: "form-control" %>
+                  <%= form.select :user_id, options_for_select(User.all.map { |user| [user.name, user.id] }, selected: relative.user ), { prompt: "Select User" }, { class: "form-control rounded-0" } %>
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <div class="actions float-right mt-3">
-                    <%= form.submit class: "btn btn-primary" %>
-                  </div>
+                  <div class="actions mt-3">
+                    <%= form.submit class: "btn btn-primary rounded-0" %>
+                  </div>  
                 </div>
               </div>
+            </div>
             </div>
           </div>
         <% end %>
