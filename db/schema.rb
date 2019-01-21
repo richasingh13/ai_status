@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_20_154245) do
+ActiveRecord::Schema.define(version: 2019_01_21_091833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 2019_01_20_154245) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_education_credentials_on_user_id"
+  end
+
+  create_table "relatives", force: :cascade do |t|
+    t.string "name"
+    t.string "relation"
+    t.string "contact_number"
+    t.string "address"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_relatives_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -81,5 +92,6 @@ ActiveRecord::Schema.define(version: 2019_01_20_154245) do
 
   add_foreign_key "daily_statuses", "users"
   add_foreign_key "education_credentials", "users"
+  add_foreign_key "relatives", "users"
   add_foreign_key "tasks", "daily_statuses"
 end

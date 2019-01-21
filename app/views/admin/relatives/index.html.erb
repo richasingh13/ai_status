@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h3 class="text-center mb-4">Relatives</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Relation</th>
+          <th>Contact number</th>
+          <th>Address</th>
+          <th>User</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @relatives.each do |relative| %>
+          <tr>
+            <td><%= relative.name %></td>
+            <td><%= relative.relation %></td>
+            <td><%= relative.contact_number %></td>
+            <td><%= relative.address %></td>
+            <td><%= relative.user %></td>
+            <td><%= link_to 'Show', relative %></td>
+            <td><%= link_to 'Edit', edit_relative_path(relative) %></td>
+            <td><%= link_to 'Destroy', relative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <%= link_to 'New Relative', new_relative_path, class: "btn btn-primary mb-5" %>
+</div>
+
+
+

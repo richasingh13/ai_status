@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :relatives
   resources :education_credentials
   resources :daily_statuses
   devise_for :users, skip: :registrations
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
     resources :daily_statuses
     resources :users
     resources :education_credentials
+    resources :relatives
   end   
   
   # non-resource custom routes

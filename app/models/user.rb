@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_many :daily_statuses
   has_many :education_credentials
+  has_many :relatives
   mount_uploader :profile_pic, AvatarUploader
 
   validates :first_name, :last_name, :contact, :permanent_address, :current_address, :city, :state, :country, :gender, :date_of_joining, :date_of_birth, presence: true
