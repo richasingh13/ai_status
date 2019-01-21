@@ -1,29 +1,32 @@
- <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="col-md-4 offset-4">
+    <div class="card shadow">
+      <div class="card-body">
+        <p>
+          <strong>Course:</strong>
+          <%= @education_credential.course %>
+        </p>
+        <p>
+          <strong>University:</strong>
+          <%= @education_credential.university %>
+        </p>
+        <p>
+          <strong>Percentage:</strong>
+          <%= @education_credential.percentage %>
+        </p>
+        <p>
+          <strong>Course type:</strong>
+          <%= @education_credential.course_type %>
+        </p>
+        <p>
+          <strong>User:</strong>
+          <%= @education_credential.user %>
+        </p>
+        <%= link_to 'Edit', edit_admin_education_credential_path(@education_credential), class: "btn btn-info" %> 
+        <%= link_to 'Back', admin_education_credentials_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Course:</strong>
-  <%= @education_credential.course %>
-</p>
-
-<p>
-  <strong>University:</strong>
-  <%= @education_credential.university %>
-</p>
-
-<p>
-  <strong>Percentage:</strong>
-  <%= @education_credential.percentage %>
-</p>
-
-<p>
-  <strong>Course type:</strong>
-  <%= @education_credential.course_type %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @education_credential.user %>
-</p>
-
-<%= link_to 'Edit', edit_admin_education_credential_path(@education_credential) %> |
-<%= link_to 'Back', admin_education_credentials_path %>
