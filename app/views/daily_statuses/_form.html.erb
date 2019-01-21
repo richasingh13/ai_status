@@ -39,7 +39,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <%= f.label :status_date %>
-                <%= f.text_field :status_date, class: "form-control", id: "status_date", data: { toggle: "datetimepicker", target: "#status_date" } %>
+                <%= f.date_field :status_date, class: "form-control" %>
               </div>
             </div>
           </div>
@@ -73,11 +73,3 @@
     $('#outTime').timepicker();
   });
 </script>
-
- <script type="text/javascript">
-    $(function () {
-      $('#status_date').datetimepicker({
-        format: 'L'
-      });
-    });
-  </script>
