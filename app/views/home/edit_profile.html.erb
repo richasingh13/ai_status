@@ -124,13 +124,12 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <%= f.label :country %>
-                  <%= f.text_field :country, class: "form-control rounded-0" %>
-                </div>
+                  <%= f.country_select  :country, {}, {class: "form-control rounded-0"} %></div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <%= f.label :nationality %>
-                  <%= f.text_field :nationality, class: "form-control rounded-0"  %>
+                  <%= f.country_select  :nationality, {}, {class: "form-control rounded-0"} %>
                 </div>
               </div>
             </div>

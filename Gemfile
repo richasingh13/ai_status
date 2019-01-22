@@ -74,6 +74,8 @@ gem 'completeness_model', '~> 0.0.0'
 gem "cocoon"
 gem 'jquery-ui-rails'
 gem 'carrierwave', '~> 1.0'
+gem 'country_select', '~> 4.0'
+
 
 
 
