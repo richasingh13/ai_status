@@ -45,7 +45,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <%= f.label :gender %>
-            <%= f.text_field :gender, class: "form-control rounded-0" %>
+            <%= f.select :gender, options_for_select(User::GENDER, selected: @user.gender), { prompt: "Select Gender" }, { class: "form-control rounded-0" } %>
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <%= f.label :marital_status %>
-            <%= f.text_field :marital_status, class: "form-control rounded-0" %>
+            <%= f.select :marital_status, options_for_select(User::MARITAL_STATUS, selected: @user.marital_status), { prompt: "Select Status" }, { class: "form-control rounded-0" } %>
           </div>
         </div>
       </div>
@@ -155,7 +155,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <%= f.label :role %>
-            <%= f.text_field :role, class: "form-control rounded-0" %>
+            <%= f.select :role, options_for_select(User::ROLE, selected: @user.role), { prompt: "Select Role" }, { class: "form-control rounded-0" } %>
           </div>
         </div>
         <div class="col-md-6">

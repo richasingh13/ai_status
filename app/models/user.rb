@@ -13,6 +13,8 @@ class User < ApplicationRecord
   # validates :first_name, :last_name, :contact, :permanent_address, :current_address, :city, :state, :country, :gender, :date_of_joining, :date_of_birth, presence: true
 
   GENDER = ["Male", "Female", "Transgender"]
+  MARITAL_STATUS = ["Single", "Married", "Widow"]
+  ROLE = ["Admin", "Employee", "Trainee"]
 
   def name
     "#{self.first_name} #{self.last_name}"

@@ -48,7 +48,15 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <%= f.label :gender %>
-                  <%= f.text_field :gender, class: "form-control rounded-0" %>
+                  <%= f.select :gender, options_for_select(User::GENDER, selected: @user.gender), { prompt: "Select Gender" }, { class: "form-control rounded-0" } %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= f.label :marital_status %>
+                  <%= f.select :marital_status, options_for_select(User::MARITAL_STATUS, selected: @user.marital_status), { prompt: "Select Status" }, { class: "form-control rounded-0" } %>
                 </div>
               </div>
             </div>
@@ -143,6 +151,48 @@
                 <div class="form-group">
                   <%= f.label :date_of_joining %>
                   <%= f.date_field :date_of_joining, class: "form-control rounded-0" %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= f.label :role %>
+                  <%= f.select :role, options_for_select(User::ROLE, selected: @user.role), { prompt: "Select Role" }, { class: "form-control rounded-0" } %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= f.label :skype_username %>
+                  <%= f.text_field :skype_username, class: "form-control rounded-0" %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= f.label :linkedin_profile_url %>
+                  <%= f.text_field :linkedin_profile_url, class: "form-control rounded-0" %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= f.label :github_username %>
+                  <%= f.text_field :github_username, class: "form-control rounded-0" %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= f.label :aadhar_uid %>
+                  <%= f.text_field :aadhar_uid, class: "form-control rounded-0" %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= f.label :pan_uid %>
+                  <%= f.text_field :pan_uid, class: "form-control rounded-0" %>
                 </div>
               </div>
             </div>
