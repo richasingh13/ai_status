@@ -39,7 +39,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <%= f.label :Password %>
-                <%= f.text_field :password, class: "form-control" %>
+                <%= f.password_field :password, class: "form-control" %>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <%= f.label :date_of_joining %>
-                <%= f.text_field :date_of_joining, class: "form-control", id: "date_of_joining", data: { toggle: "datetimepicker", target: "#date_of_joining" } %>
+                <%= f.date_field :date_of_joining, class: "form-control" %>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <%= f.label :date_of_birth %>
-                <%= f.text_field :date_of_birth, class: "form-control", id: "date_of_birth", data: { toggle: "datetimepicker", target: "#date_of_birth" } %>
+                <%= f.text_field :date_of_birth, class: "form-control" %>
               </div>
             </div>
             <div class="col-md-6">
@@ -146,19 +146,3 @@
     </div>
   </div>
 </div>
-
-
-<script type="text/javascript">
-  $(function () {
-    $('#date_of_joining').datetimepicker({
-      format: 'L'
-    });
-  });
-</script>
-<script type="text/javascript">
-  $(function () {
-    $('#date_of_birth').datetimepicker({
-      format: 'L'
-    });
-  });
-</script>
