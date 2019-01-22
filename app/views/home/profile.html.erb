@@ -29,6 +29,10 @@
                 <strong>Gender:</strong>
                 <%= @user.gender %>
               </p>
+              <p>
+                <strong>Marital Status:</strong>
+                <%= @user.marital_status %>
+              </p>
               <%= link_to "Edit Personal Information", edit_personal_info_path, class: "btn btn-primary rounded-0 shadow mb-3 mt-3", data: { toggle: "modal", target: "#personalInfoModal", remote: true } %>
             </div>
           </div>
@@ -76,6 +80,30 @@
               <p>
                 <strong>Date of Joining:</strong>
                 <%= @user.date_of_joining %>
+              </p>
+               <p>
+                <strong>Role:</strong>
+                <%= @user.role %>
+              </p>
+               <p>
+                <strong>Skype Username:</strong>
+                <%= @user.skype_username %>
+              </p>
+               <p>
+                <strong>Linkedin Profile Url:</strong>
+                <%= @user.linkedin_profile_url %>
+              </p>
+               <p>
+                <strong>GitHub UserName:</strong>
+                <%= @user.github_username %>
+              </p>
+               <p>
+                <strong>Aadhar Uid:</strong>
+                <%= @user.aadhar_uid %>
+              </p>
+               <p>
+                <strong>Pan Uid:</strong>
+                <%= @user.pan_uid %>
               </p>
               <p>
                 <strong>Job Description:</strong>

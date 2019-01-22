@@ -8,17 +8,67 @@
     </div>
     <%= form_for @user, url: :update_job_info, method: :patch do |f| %>
       <div class="modal-body">
-        <div class="form-group">
-          <label>Designation</label>
-          <%= f.text_field :designation, class: "form-control rounded-0" %>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Designation</label>
+              <%= f.text_field :designation, class: "form-control rounded-0" %>
+            </div> 
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Role</label>
+              <%= f.text_field :role, class: "form-control rounded-0" %>
+            </div>   
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Skype User Name</label>
+              <%= f.text_field :skype_username, class: "form-control rounded-0" %>
+            </div>   
+          </div>
         </div>
-        <div class="form-group">
-          <label>Date of Joining</label>
-          <%= f.date_field :date_of_joining, class: "form-control rounded-0" %>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Date of Joining</label>
+              <%= f.date_field :date_of_joining, class: "form-control rounded-0" %>
+            </div>  
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+               <label>Linkedin Profile Url</label>
+              <%= f.text_field :linkedin_profile_url, class: "form-control rounded-0" %>   
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+               <label>Git Hub User Name</label>
+              <%= f.text_field :github_username, class: "form-control rounded-0" %>   
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Job Description</label>
-          <%= f.text_area :job_description, class: "form-control rounded-0", rows: "7" %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+               <label>Aadhar Uid</label>
+              <%= f.text_field :aadhar_uid, class: "form-control rounded-0" %>   
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+               <label>Pan Uid</label>
+              <%= f.text_field :pan_uid, class: "form-control rounded-0" %>   
+            </div>
+          </div>   
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <label>Job Description</label>
+              <%= f.text_area :job_description, class: "form-control rounded-0", rows: "7" %>
+            </div>       
+          </div>
         </div>
       </div>
       <div class="modal-footer">
