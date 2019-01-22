@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_21_091833) do
+ActiveRecord::Schema.define(version: 2019_01_22_082524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(version: 2019_01_21_091833) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_education_credentials_on_user_id"
+  end
+
+  create_table "reference_people", force: :cascade do |t|
+    t.string "name"
+    t.string "contact"
+    t.string "email"
+    t.string "currently_worked_at"
+    t.string "address"
+    t.text "how_connected"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reference_people_on_user_id"
   end
 
   create_table "relatives", force: :cascade do |t|
@@ -86,12 +99,20 @@ ActiveRecord::Schema.define(version: 2019_01_21_091833) do
     t.string "country"
     t.string "nationality"
     t.string "gender"
+    t.string "role"
+    t.string "skype_username"
+    t.string "marital_status"
+    t.string "linkedin_profile_url"
+    t.string "github_username"
+    t.string "aadhar_uid"
+    t.string "pan_uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "daily_statuses", "users"
   add_foreign_key "education_credentials", "users"
+  add_foreign_key "reference_people", "users"
   add_foreign_key "relatives", "users"
   add_foreign_key "tasks", "daily_statuses"
 end

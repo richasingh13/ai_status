@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-1">
+      <%= form_for [:admin, reference_person] do |form| %>
+        <% if reference_person.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(reference_person.errors.count, "error") %> prohibited this reference_person from being saved:</h2>
+
+            <ul>
+            <% reference_person.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="alert alert-primary rounded-0" role="alert">
+          <div class="card shadow rounded-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :name %>
+                    <%= form.text_field :name, class: "form-control rounded-0" %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :contact %>
+                    <%= form.text_field :contact, class: "form-control rounded-0" %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :email %>
+                    <%= form.text_field :email, class: "form-control rounded-0" %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :currently_worked_at %>
+                    <%= form.text_field :currently_worked_at, class: "form-control rounded-0" %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :address %>
+                    <%= form.text_field :address, class: "form-control rounded-0" %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :how_connected %>
+                    <%= form.text_area :how_connected, class: "form-control rounded-0" %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :user_id %>
+                    <%= form.text_field :user_id, class: "form-control rounded-0" %>
+                  </div>  
+                </div>
+              </div>
+              <div class="row">
+                <div class="actions">
+                  <%= form.submit class: "btn btn-primary rounded-0 ml-3 mt-3" %>
+                </div>
+              </div>  
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+  
+  
+

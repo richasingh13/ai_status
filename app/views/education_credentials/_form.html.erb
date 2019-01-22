@@ -1,42 +1,68 @@
-<%= form_with(model: education_credential, local: true) do |form| %>
-  <% if education_credential.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(education_credential.errors.count, "error") %> prohibited this education_credential from being saved:</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-2">
+      <%= form_with(model: education_credential, local: true) do |form| %>
+      <% if education_credential.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(education_credential.errors.count, "error") %> prohibited this education_credential from being saved:</h2>
 
-      <ul>
-      <% education_credential.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <ul>
+          <% education_credential.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
       <% end %>
-      </ul>
+      <div class="card shadow rounded-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= form.label :course %>
+                <%= form.text_field :course, class: "form-control rounded-0" %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= form.label :university %>
+                <%= form.text_field :university, class: "form-control rounded-0" %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= form.label :percentage %>
+                <%= form.text_field :percentage, class: "form-control rounded-0" %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= form.label :course_type %>
+                <%= form.text_field :course_type, class: "form-control rounded-0" %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= form.label :user_id %>
+                <%= form.text_field :user_id, class: "form-control rounded-0" %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="actions">
+                <%= form.submit class: "btn btn-primary rounded-0 shadow" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :course %>
-    <%= form.text_field :course %>
   </div>
+</div>
 
-  <div class="field">
-    <%= form.label :university %>
-    <%= form.text_field :university %>
-  </div>
 
-  <div class="field">
-    <%= form.label :percentage %>
-    <%= form.text_field :percentage %>
-  </div>
-
-  <div class="field">
-    <%= form.label :course_type %>
-    <%= form.text_field :course_type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

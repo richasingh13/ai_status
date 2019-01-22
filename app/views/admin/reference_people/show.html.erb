@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-4">
+      <div class="alert alert-primary rounded-0" role="alert">
+        <div class="card shadow rounded-0">
+          <div class="card-body">
+            <p>
+              <strong>Name:</strong>
+              <%= @reference_person.name %>
+            </p>
+
+            <p>
+              <strong>Contact:</strong>
+              <%= @reference_person.contact %>
+            </p>
+
+            <p>
+              <strong>Email:</strong>
+              <%= @reference_person.email %>
+            </p>
+
+            <p>
+              <strong>Currently worked at:</strong>
+              <%= @reference_person.currently_worked_at %>
+            </p>
+
+            <p>
+              <strong>Address:</strong>
+              <%= @reference_person.address %>
+            </p>
+
+            <p>
+              <strong>How connected:</strong>
+              <%= @reference_person.how_connected %>
+            </p>
+
+            <p>
+              <strong>User:</strong>
+              <%= @reference_person.user %>
+            </p>
+           <%= link_to 'Edit', edit_admin_reference_person_path(@reference_person), class: "btn btn-info rounded-0" %> 
+           <%= link_to 'Back', admin_reference_people_path, class: "btn btn-secondary rounded-0" %>   
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

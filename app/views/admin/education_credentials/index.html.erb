@@ -1,36 +1,33 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <h3 class="text-center mb-4">Education Credentials</h3>
-    <table class="table table-hover"> 
-     <thead>
-        <tr>
-          <th>Course</th>
-          <th>University</th>
-          <th>Percentage</th>
-          <th>Course type</th>
-          <th>User</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
+  <table class="table table-hover"> 
+   <thead>
+    <tr>
+      <th>Course</th>
+      <th>University</th>
+      <th>Percentage</th>
+      <th>Course type</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
   <tbody>
     <% @education_credentials.each do |education_credential| %>
-      <tr>
-        <td><%= education_credential.course %></td>
-        <td><%= education_credential.university %></td>
-        <td><%= education_credential.percentage %></td>
-        <td><%= education_credential.course_type %></td>
-        <td><%= education_credential.user %></td>
-        <td><%= link_to 'Show', education_credential %></td>
-        <td><%= link_to 'Edit', edit_admin_education_credential_path(education_credential) %></td>
-        <td><%= link_to 'Destroy', admin_education_credential_path(education_credential), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= education_credential.course %></td>
+      <td><%= education_credential.university %></td>
+      <td><%= education_credential.percentage %></td>
+      <td><%= education_credential.course_type %></td>
+      <td><%= education_credential.user %></td>
+      <td><%= link_to 'Show', admin_education_credential_path(education_credential) %></td>
+      <td><%= link_to 'Edit', edit_admin_education_credential_path(education_credential) %></td>
+      <td><%= link_to 'Destroy', admin_education_credential_path(education_credential), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
+<%= link_to 'New Education Credential', new_admin_education_credential_path, class: "btn btn-primary mb-5 ml-3 rounded-0" %>
 </div>
 
 
-<br>
-
-<%= link_to 'New Education Credential', new_admin_education_credential_path, class: "btn btn-primary mb-5 ml-3" %>

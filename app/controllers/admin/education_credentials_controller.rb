@@ -45,7 +45,7 @@ class Admin::EducationCredentialsController < ApplicationController
   def destroy
     @education_credential.destroy
     respond_to do |format|
-      format.html { redirect_to education_credentials_url, notice: 'Education credential was successfully destroyed.' }
+      format.html { redirect_to admin_education_credentials_url, notice: 'Education credential was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

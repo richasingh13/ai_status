@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #resources :reference_people
   resources :relatives
   resources :education_credentials
   resources :daily_statuses
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     resources :users
     resources :education_credentials
     resources :relatives
+    resources :reference_people
   end   
   
   # non-resource custom routes
