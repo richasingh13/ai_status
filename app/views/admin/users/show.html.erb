@@ -1,86 +1,122 @@
 <div class="container">
-  <div class="col-md-8 offset-4">
-    <div class="card shadow">
-      <p id="notice"><%= notice %>
-      </p>
-      <div class="card-body">
-          <p>
-            <strong>First name:</strong>
-            <%= @user.first_name %>
-          </p>
-
-          <p>
-            <strong>Last name:</strong>
-            <%= @user.last_name %>
-          </p>
-
-          <p>
-            <strong>Contact:</strong>
-            <%= @user.contact %>
-          </p>
-
-          <p>
-            <strong>Profile pic:</strong>
-            <%= @user.profile_pic %>
-          </p>
-
-          <p>
-            <strong>Designation:</strong>
-            <%= @user.designation %>
-          </p>
-
-
-          <p>
-            <strong>Date of joining:</strong>
-            <%= @user.date_of_joining %>
-          </p>
-          <p>
-            <strong>date_of_birth:</strong>
-            <%= @user.date_of_birth %>
-          </p>
-
-          <p>
-            <strong>Job Description:</strong>
-            <%= @user.job_description %>
-          </p>
-
-          <p>
-            <strong>Permanent Address:</strong>
-            <%= @user.permanent_address %>
-          </p>
-
-          <p>
-            <strong>Current Address:</strong>
-            <%= @user.current_address %>
-          </p>
-
-          <p>
-            <strong>City:</strong>
-            <%= @user.city %>
-          </p>
-
-          <p>
-            <strong>State:</strong>
-            <%= @user.state %>
-          </p>
-
-          <p>
-            <strong>Country:</strong>
-            <%= @user.country %>
-          </p>
-
-          <p>
-            <strong>Nationality:</strong>
-            <%= @user.nationality %>
-          </p>
-
-          <p>
-            <strong>Gender:</strong>
-            <%= @user.gender %>
-          </p>
-
-          <%= link_to 'Edit', edit_admin_user_path(@user) %> |
-          <%= link_to 'Back', admin_users_path %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card shadow rounded-0 mt-5 mb-5">
+        <div class="card-body">
+          <h5 class="font-weight-bold text-center">User Profile</h5>
+          <div class="text-center">
+            <%= image_tag "user-dummy.png", class: "img-fluid rounded-circle", width: "120" %>
+            <h5 class="font-weight-bold mt-2 mb-2"><%= @user.name %></h5>
+            <small><strong>Email:</strong> <%= @user.email %></small><br>
+            <small><strong>Mobile:</strong> +91 <%= @user.contact %></small><br>
+            <small><strong>DOB:</strong> <%= @user.date_of_birth.strftime("%B %d, %Y") %></small><br>
+            <small><strong>Gender:</strong> <%= @user.gender %></small>
+          </div>
+        </div>
+      </div>
+      <div class="card shadow rounded-0 mt-5 mb-5">
+        <div class="card-body">
+          <h5 class="font-weight-bold">Address Details</h5>
+          <div class="">
+            <small><strong>Permanent Address: </strong><%= @user.permanent_address %></small><br>
+            <small><strong>Current Address: </strong><%= @user.current_address %></small><br>
+            <small><strong>City:</strong> <%= @user.city %></small><br>
+            <small><strong>State:</strong> <%= @user.state %></small><br>
+            <small><strong>Country:</strong> <%= @user.country %></small><br>
+            <small><strong>Nationality:</strong> <%= @user.nationality %></small><br>
+          </div>
+        </div>
+      </div>
+      <div class="card shadow rounded-0 mt-5 mb-5">
+        <div class="card-body">
+          <h5 class="font-weight-bold">Employeement Details</h5>
+          <div class="">
+            <small><strong>Designation: </strong><%= @user.designation %></small><br>
+            <small><strong>Date of Joining: </strong><%= @user.date_of_joining.strftime("%B %d, %Y") %></small><br>
+            <small><strong>Job Description:</strong> <%= @user.job_description %></small><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow rounded-0 mt-5 mb-5">
+        <div class="card-body">
+          <h5 class="font-weight-bold text-center">Educational Credentials</h5>
+          <% if @user.education_credentials.present? %>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Board/University</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @user.education_credentials.each do |edu| %>
+                  <tr>
+                    <td><%= edu.course %></td>
+                    <td><%= edu.course_type %></td>
+                    <td><%= edu.university %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+      </div>
+      <div class="card shadow rounded-0 mt-5 mb-5">
+        <div class="card-body">
+          <h5 class="font-weight-bold text-center">Relatives</h5>
+          <% if @user.relatives.present? %>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Relation</th>
+                  <th>Contact</th>
+                  <th>Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @user.relatives.each do |relative| %>
+                  <tr>
+                    <td><%= relative.name %></td>
+                    <td><%= relative.relation %></td>
+                    <td><%= relative.contact_number %></td>
+                    <td><%= relative.address %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+      </div>
+      <div class="card shadow rounded-0 mt-5 mb-5">
+        <div class="card-body">
+          <h5 class="font-weight-bold text-center">References</h5>
+          <% if @user.reference_people.present? %>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Contact</th>
+                  <th>Address</th>
+                  <th>Worked at</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @user.reference_people.each do |reference_person| %>
+                  <tr>
+                    <td><%= reference_person.name %></td>
+                    <td><%= reference_person.contact %></td>
+                    <td><%= reference_person.address %></td>
+                    <td><%= reference_person.currently_worked_at %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
