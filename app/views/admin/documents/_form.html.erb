@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-4">
+      <%= form_for [:admin, document] do |form| %>
+      <% if document.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+        <ul>
+          <% document.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+      <div class="alert alert-primary rounded-0" role="alert">
+        <div class="card shadow rounded-0">
+          <div class="card-body">
+            <div class="row ml-3">
+              <div class="form-group">
+                <%= form.label :document_name %>
+                <%= form.text_field :document_name, class: "form-control rounded-0" %>
+              </div>
+            </div>
+            <div class="row ml-3">
+              <div class="form-group">
+                <%= form.label :employee_id %>
+                <%= form.text_field :employee_id, class: "form-control rounded-0" %>
+              </div>
+            </div>
+            <div class="actions">
+              <%= form.submit class: "btn btn-primary rounded-0 mt-3 ml-3"%>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

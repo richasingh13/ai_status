@@ -1,0 +1,136 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="col-md-6 offset-3">
+    <div class="card shadow">
+      <div class="card-body">
+        <p>
+          <strong>First name:</strong>
+          <%= @employee.first_name %>
+        </p>
+
+        <p>
+          <strong>Last name:</strong>
+          <%= @employee.last_name %>
+        </p>
+
+        <p>
+          <strong>Contact:</strong>
+          <%= @employee.contact %>
+        </p>
+
+        <p>
+          <strong>Profile pic:</strong>
+          <%= @employee.profile_pic %>
+        </p>
+
+        <p>
+          <strong>Date of birth:</strong>
+          <%= @employee.date_of_birth %>
+        </p>
+
+        <p>
+          <strong>Gender:</strong>
+          <%= @employee.gender %>
+        </p>
+
+        <p>
+          <strong>Marital status:</strong>
+          <%= @employee.marital_status %>
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <%= @employee.email %>
+        </p>
+
+        <p>
+          <strong>Password:</strong>
+          <%= @employee.password %>
+        </p>
+
+        <p>
+          <strong>Password confirmation:</strong>
+          <%= @employee.password_confirmation %>
+        </p>
+
+        <p>
+          <strong>Permanent address:</strong>
+          <%= @employee.permanent_address %>
+        </p>
+
+        <p>
+          <strong>Current address:</strong>
+          <%= @employee.current_address %>
+        </p>
+
+        <p>
+          <strong>City:</strong>
+          <%= @employee.city %>
+        </p>
+
+        <p>
+          <strong>State:</strong>
+          <%= @employee.state %>
+        </p>
+
+        <p>
+          <strong>Country:</strong>
+          <%= @employee.country %>
+        </p>
+
+        <p>
+          <strong>Nationality:</strong>
+          <%= @employee.nationality %>
+        </p>
+
+        <p>
+          <strong>Designation:</strong>
+          <%= @employee.designation %>
+        </p>
+
+        <p>
+          <strong>Date of joining:</strong>
+          <%= @employee.date_of_joining %>
+        </p>
+
+        <p>
+          <strong>Role:</strong>
+          <%= @employee.role %>
+        </p>
+
+        <p>
+          <strong>Skype username:</strong>
+          <%= @employee.skype_username %>
+        </p>
+
+        <p>
+          <strong>Linkedin profile url:</strong>
+          <%= @employee.linkedin_profile_url %>
+        </p>
+
+        <p>
+          <strong>Github username:</strong>
+          <%= @employee.github_username %>
+        </p>
+
+        <p>
+          <strong>Aadhar uid:</strong>
+          <%= @employee.aadhar_uid %>
+        </p>
+
+        <p>
+          <strong>Pan uid:</strong>
+          <%= @employee.pan_uid %>
+        </p>
+
+        <p>
+          <strong>Job description:</strong>
+          <%= @employee.job_description %>
+        </p>
+        <%= link_to 'Edit', edit_admin_employee_path(@employee),class: "btn btn-info rounded-0" %> |
+        <%= link_to 'Back', admin_employees_path, class: "btn btn-secondary rounded-0" %>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,2 @@
+json.extract! employee, :id, :first_name, :last_name, :contact, :profile_pic, :date_of_birth, :gender, :marital_status, :email, :password, :password_confirmation, :permanent_address, :current_address, :city, :state, :country, :nationality, :designation, :date_of_joining, :role, :skype_username, :linkedin_profile_url, :github_username, :aadhar_uid, :pan_uid, :job_description, :created_at, :updated_at
+json.url employee_url(employee, format: :json)

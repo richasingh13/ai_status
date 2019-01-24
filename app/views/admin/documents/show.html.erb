@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-4">
+      <div class="alert alert-primary rounded-0" role="alert">
+        <div class="card shadow rounded-0">
+          <div class="card-body">
+            <p>
+              <strong>Document name:</strong>
+              <%= @document.document_name %>
+            </p>
+
+            <p>
+              <strong>Employee:</strong>
+              <%= @document.employee %>
+            </p>
+
+            <%= link_to 'Edit', edit_admin_document_path(@document), class: "btn btn-info rounded-0" %> 
+            <%= link_to 'Back', admin_documents_path, class: "btn btn-secondary rounded-0" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :education_credentials
     resources :relatives
     resources :reference_people
+    resources :employees
+    resources :documents
   end   
   
   # non-resource custom routes

@@ -57,7 +57,7 @@ class Admin::DailyStatusesController < ApplicationController
   def destroy
     @daily_status.destroy
     respond_to do |format|
-      format.html { redirect_to daily_statuses_url, notice: 'Daily status was successfully destroyed.' }
+      format.html { redirect_to admin_daily_statuses_path, notice: 'Daily status was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

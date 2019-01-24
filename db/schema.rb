@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_082524) do
+ActiveRecord::Schema.define(version: 2019_01_24_105358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2019_01_22_082524) do
     t.index ["user_id"], name: "index_daily_statuses_on_user_id"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.string "document_name"
+    t.bigint "employee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_documents_on_employee_id"
+  end
+
   create_table "education_credentials", force: :cascade do |t|
     t.string "course"
     t.string "university"
@@ -35,6 +43,36 @@ ActiveRecord::Schema.define(version: 2019_01_22_082524) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_education_credentials_on_user_id"
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "contact"
+    t.string "profile_pic"
+    t.date "date_of_birth"
+    t.string "gender"
+    t.string "marital_status"
+    t.string "email"
+    t.string "password"
+    t.string "password_confirmation"
+    t.string "permanent_address"
+    t.string "current_address"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "nationality"
+    t.string "designation"
+    t.date "date_of_joining"
+    t.string "role"
+    t.string "skype_username"
+    t.string "linkedin_profile_url"
+    t.string "github_username"
+    t.string "aadhar_uid"
+    t.string "pan_uid"
+    t.text "job_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reference_people", force: :cascade do |t|
@@ -111,6 +149,7 @@ ActiveRecord::Schema.define(version: 2019_01_22_082524) do
   end
 
   add_foreign_key "daily_statuses", "users"
+  add_foreign_key "documents", "employees"
   add_foreign_key "education_credentials", "users"
   add_foreign_key "reference_people", "users"
   add_foreign_key "relatives", "users"
