@@ -15,7 +15,7 @@
 //= require popper
 //= require bootstrap
 //= require moment-with-locales.min
-//= require tempusdominus-bootstrap-4
+//= require bootstrap-datepicker
 //= require jquery.timepicker
 //= require cocoon
 

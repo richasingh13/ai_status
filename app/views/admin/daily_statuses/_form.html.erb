@@ -36,10 +36,13 @@
                 <%= f.text_field :break, class: "form-control", value: "30 Minutes" %>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= f.label :status_date %>
-                <%= f.text_field :status_date, class: "form-control" %>
+             <div class="col-md-6">
+              <%= f.label :status_date %>
+                <div class="input-group mb-3">
+                  <%= f.text_field :status_date, class: "form-control datepicker","aria-describedby" => "basic-addon2" %>
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar"></i></span>
+                  </div>
               </div>
             </div>
           </div>
@@ -72,4 +75,13 @@
     $('#inTime').timepicker();
     $('#outTime').timepicker();
   });
+</script>
+<script type="text/javascript">
+  $(function () {
+  $(".datepicker").datepicker({ 
+        autoclose: true, 
+        todayHighlight: true
+  }).datepicker('update', new Date());
+});
+
 </script>
