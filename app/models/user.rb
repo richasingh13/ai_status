@@ -16,6 +16,18 @@ class User < ApplicationRecord
   MARITAL_STATUS = ["Single", "Married", "Widow"]
   ROLE = ["Admin", "Employee", "Trainee"]
 
+  def Admin?
+    self.role == "admin"    
+  end
+
+  def Employee?
+    self.role == "employee"    
+  end
+
+  def Trainee?
+    self.role == "trainee"    
+  end
+
   def name
     "#{self.first_name} #{self.last_name}"
   end

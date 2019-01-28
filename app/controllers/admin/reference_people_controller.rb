@@ -1,4 +1,5 @@
 class Admin::ReferencePeopleController < ApplicationController
+  load_and_authorize_resource
   before_action :set_reference_person, only: [:show, :edit, :update, :destroy]
 
   # GET /reference_people

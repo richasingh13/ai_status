@@ -1,3 +1,13 @@
+<div class="container">
+  <%if notice.present? %>
+  <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+    <p id="notice" class="mb-0"><%= notice %></p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <% end %>
+  </div>
+</div>
 <div class="jumbotron">
   <div class="container">
     <div class="row">
@@ -33,34 +43,34 @@
         </thead>
         <tbody>
           <% @daily_statuses.each do |daily_status| %>
-            <tr>
-              <td><%= daily_status.in_time %></td>
-              <td><%= daily_status.out_time %></td>
-              <td><%= daily_status.break %></td>
-              <td><%= daily_status.status_date %></td>
-              <td>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-primary btn-sm">Actions</button>
-                  <button 
-                    type="button" 
-                    class="btn btn-primary btn-sm dropdown-toggle dropdown-toggle-split"
-                    id="dropdownMenuReference" 
-                    data-toggle="dropdown" 
-                    aria-haspopup="true" 
-                    aria-expanded="false" 
-                    data-reference="parent">
-                    <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                    <%= link_to "Show", daily_status, class: "dropdown-item" %>
-                    <%= link_to "Edit", edit_daily_status_path(daily_status), class: "dropdown-item" %>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+          <tr>
+            <td><%= daily_status.in_time %></td>
+            <td><%= daily_status.out_time %></td>
+            <td><%= daily_status.break %></td>
+            <td><%= daily_status.status_date %></td>
+            <td>
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-sm">Actions</button>
+                <button 
+                type="button" 
+                class="btn btn-primary btn-sm dropdown-toggle dropdown-toggle-split"
+                id="dropdownMenuReference" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="false" 
+                data-reference="parent">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                <%= link_to "Show", daily_status, class: "dropdown-item" %>
+                <%= link_to "Edit", edit_daily_status_path(daily_status), class: "dropdown-item" %>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
+</div>
 </div>

@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  load_and_authorize_resource
   before_action :set_users, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   def index

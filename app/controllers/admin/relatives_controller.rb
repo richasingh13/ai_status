@@ -1,4 +1,5 @@
 class Admin::RelativesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_relative, only: [:show, :edit, :update, :destroy]
 
   # GET /relatives
