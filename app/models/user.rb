@@ -14,17 +14,17 @@ class User < ApplicationRecord
 
   GENDER = ["Male", "Female", "Transgender"]
   MARITAL_STATUS = ["Single", "Married", "Widow"]
-  ROLE = ["Admin", "Employee", "Trainee"]
+  ROLE = ["admin", "employee", "trainee"]
 
-  def Admin?
+  def admin?
     self.role == "admin"    
   end
 
-  def Employee?
+  def employee?
     self.role == "employee"    
   end
 
-  def Trainee?
+  def trainee?
     self.role == "trainee"    
   end
 
