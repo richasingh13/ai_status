@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 col-12 col-sm-12">
+        <%= link_to 'Add User', new_admin_user_path, class: "btn btn-primary rounded-0 ml-5  float-right" %>
       <div class="row">
         <% @users.each do |user| %>
           <div class="col-md-3 col-sm-6">
