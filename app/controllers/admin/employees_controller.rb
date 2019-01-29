@@ -29,6 +29,7 @@ class Admin::EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
+        User.create(email: @employee.email, password: "12345678", role: "employee")
         format.html { redirect_to admin_employee_path(@employee), notice: 'Employee was successfully created.' }
         format.json { render :show, status: :created, location: @employee }
       else
