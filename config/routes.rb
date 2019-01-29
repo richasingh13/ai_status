@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
    namespace :admin do
     resources :daily_statuses
-    resources :users
+    resources :users, only: [:show, :index, :destroy]
     resources :education_credentials
     resources :relatives
     resources :reference_people

@@ -19,13 +19,13 @@
             <div class="col-md-3">
               <div class="form-group">
                 <%= f.label :in_time %>
-                <%= f.text_field :in_time, id: "inTime", class: "form-control" %>
+                <%= f.text_field :in_time, id: "inTime", class: "form-control rounded-0" %>
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <%= f.label :out_time %>
-                <%= f.text_field :out_time, id: "outTime", class: "form-control" %>
+                <%= f.text_field :out_time, id: "outTime", class: "form-control rounded-0" %>
               </div>
             </div>
           </div>
@@ -33,13 +33,13 @@
             <div class="col-md-6">
               <div class="form-group">
                 <%= f.label :break %>
-                <%= f.text_field :break, class: "form-control", value: "30 Minutes" %>
+                <%= f.text_field :break, class: "form-control rounded-0", value: "30 Minutes" %>
               </div>
             </div>
              <div class="col-md-6">
               <%= f.label :status_date %>
                 <div class="input-group mb-3">
-                  <%= f.text_field :status_date, class: "form-control datepicker","aria-describedby" => "basic-addon2" %>
+                  <%= f.text_field :status_date, class: "form-control rounded-0 datepicker","aria-describedby" => "basic-addon2" %>
                   <div class="input-group-append">
                     <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar"></i></span>
                   </div>
@@ -55,14 +55,14 @@
           <%= render "task_fields", :f => task %>
         <% end %>
         <div class='links'>
-          <%= link_to_add_association f, :tasks, class: "btn btn-primary" do %>
+          <%= link_to_add_association f, :tasks, class: "btn btn-primary rounded-0" do %>
             <i class="mdi mdi-plus"></i>Add tasks 
           <% end %>
         </div>
       </div>
 
       <div class="actions float-right mt-3">
-        <%= f.submit class: "btn btn-primary" %>
+        <%= f.submit class: "btn btn-primary rounded-0" %>
       </div>
       
     <% end %>

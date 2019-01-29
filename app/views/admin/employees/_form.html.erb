@@ -77,20 +77,6 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <%= form.label :password %>
-                <%= form.text_field :password, class: "form-control rounded-0" %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :password_confirmation %>
-                <%= form.text_field :password_confirmation, class: "form-control rounded-0" %>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
                 <%= form.label :permanent_address %>
                 <%= form.text_field :permanent_address, class: "form-control rounded-0" %>
               </div>
@@ -151,7 +137,7 @@
             <div class="col-md-6">
               <div class="form-group">
                <%= form.label :role %>
-                  <%= form.select :role, options_for_select(Employee::ROLE, selected: @employee.role), { prompt: "Select Role" }, { class: "form-control rounded-0" } %>
+                <%= form.text_field :role, class: "form-control rounded-0" %>
               </div>
             </div>
             <div class="col-md-6">

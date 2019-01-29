@@ -1,8 +1,7 @@
-<div class="container">
+<p id="notice"><%= notice %></p>
+<div class="container mb-5">
   <div class="col-md-4 offset-4">
     <div class="card shadow">
-      <p id="notice"><%= notice %>
-      </p>
       <div class="card-body">
         <p>
           <strong>In time:</strong>
@@ -18,8 +17,8 @@
           <strong>Break:</strong>
           <%= @daily_status.break %>
         </p>
-        <%= link_to 'Edit', edit_admin_daily_status_path(@daily_status), class: "btn btn-info" %> |
-        <%= link_to 'Back', admin_daily_statuses_path, class: "btn btn-secondary" %>
+        <%= link_to 'Edit', edit_admin_daily_status_path(@daily_status), class: "btn btn-info rounded-0" %> |
+        <%= link_to 'Back', admin_daily_statuses_path, class: "btn btn-secondary rounded-0" %>
       </div>
     </div>
   </div>

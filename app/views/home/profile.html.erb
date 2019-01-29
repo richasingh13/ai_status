@@ -10,28 +10,32 @@
                 <%= image_tag "user-dummy.png", class: "img-fluid rounded-circle mb-3", style: "width:50%;" %>
               </div>
               <p>
-                <strong>Name:</strong>
-                <%= @user.name %>
+                <strong>First Name:</strong>
+                <%= @employee.first_name %>
+              </p>
+              <p>
+                <strong>Last Name:</strong>
+                <%= @employee.last_name %>
               </p>
               <p>
                 <strong>Contact:</strong>
-                <%= @user.contact %>
+                <%= @employee.contact %>
               </p>
               <p>
                 <strong>Email:</strong>
-                <%= @user.email %>
+                <%= @employee.email %>
               </p>
               <p>
                 <strong>Date of Birth:</strong>
-                <%= @user.date_of_birth %>
+                <%= @employee.date_of_birth %>
               </p>
               <p>
                 <strong>Gender:</strong>
-                <%= @user.gender %>
+                <%= @employee.gender %>
               </p>
               <p>
                 <strong>Marital Status:</strong>
-                <%= @user.marital_status %>
+                <%= @employee.marital_status %>
               </p>
               <%= link_to "Edit Personal Information", edit_personal_info_path, class: "btn btn-primary rounded-0 shadow mb-3 mt-3", data: { toggle: "modal", target: "#personalInfoModal", remote: true } %>
             </div>
@@ -43,27 +47,27 @@
               </div>
               <p>
                 <strong>Permanent Address:</strong>
-                <%= @user.permanent_address %>
+                <%= @employee.permanent_address %>
               </p>
               <p>
                 <strong>Current Address:</strong>
-                <%= @user.current_address %>
+                <%= @employee.current_address %>
               </p>
               <p>
                 <strong>City:</strong>
-                <%= @user.city %>
+                <%= @employee.city %>
               </p>
               <p>
                 <strong>State:</strong>
-                <%= @user.state %>
+                <%= @employee.state %>
               </p>
               <p>
                 <strong>Country:</strong>
-                <%= @user.country %>
+                <%= @employee.country %>
               </p>
               <p>
                 <strong>Nationality:</strong>
-                <%= @user.nationality %>
+                <%= @employee.nationality %>
               </p>
               <%= link_to "Edit Address Information", edit_address_info_path, class: "btn btn-primary rounded-0 shadow mb-3 mt-3", data: { toggle: "modal", target: "#addressInfoModal", remote: true } %>
             </div>
@@ -75,39 +79,39 @@
               </div>
               <p>
                 <strong>Designation:</strong>
-                <%= @user.designation %>
+                <%= @employee.designation %>
               </p>
               <p>
                 <strong>Date of Joining:</strong>
-                <%= @user.date_of_joining %>
+                <%= @employee.date_of_joining %>
               </p>
                <p>
                 <strong>Role:</strong>
-                <%= @user.role %>
+                <%= @employee.role %>
               </p>
                <p>
                 <strong>Skype Username:</strong>
-                <%= @user.skype_username %>
+                <%= @employee.skype_username %>
               </p>
                <p>
                 <strong>Linkedin Profile Url:</strong>
-                <%= @user.linkedin_profile_url %>
+                <%= @employee.linkedin_profile_url %>
               </p>
                <p>
                 <strong>GitHub UserName:</strong>
-                <%= @user.github_username %>
+                <%= @employee.github_username %>
               </p>
                <p>
                 <strong>Aadhar Uid:</strong>
-                <%= @user.aadhar_uid %>
+                <%= @employee.aadhar_uid %>
               </p>
                <p>
                 <strong>Pan Uid:</strong>
-                <%= @user.pan_uid %>
+                <%= @employee.pan_uid %>
               </p>
               <p>
                 <strong>Job Description:</strong>
-                <%= @user.job_description %>
+                <%= @employee.job_description %>
               </p>
               <%= link_to "Edit Job Information", edit_job_info_path, class: "btn btn-primary rounded-0 shadow mb-3 mt-3", data: { toggle: "modal", target: "#jobInfoModal", remote: true } %>
             </div>
@@ -146,7 +150,7 @@
             </div>
           <% end %>
 
-          <% if @user.relatives.present? %>
+          <% if @employee.relatives.present? %>
             <div class="card shadow rounded-0 mt-5 mb-5">
               <div class="card-body">
                 <h4 class="text-center text-muted">My Relatives</h4>

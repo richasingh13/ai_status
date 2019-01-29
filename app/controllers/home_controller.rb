@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   end
 
   def profile
+     @employee = Employee.find(params[:id])
   end
 
   def edit_profile
