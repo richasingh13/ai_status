@@ -1,124 +1,172 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-  <div class="col-md-6 offset-3">
-    <div class="card shadow">
-      <div class="card-body">
-        <p>
-          <strong>First name:</strong>
-          <%= @employee.first_name %>
-        </p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card shadow rounded-0 mt-5 mb-4">
+        <div class="card-body">
 
-        <p>
-          <strong>Last name:</strong>
-          <%= @employee.last_name %>
-        </p>
+          <div class="text-center">
+            <%= image_tag "user-dummy.png", width: "150", class: "rounded-circle" %>
+          </div>
 
-        <p>
-          <strong>Contact:</strong>
-          <%= @employee.contact %>
-        </p>
+          <p>
+            <strong>Name:</strong>
+            <%= @employee.name %>
+          </p>
 
-        <p>
-          <strong>Profile pic:</strong>
-          <%= @employee.profile_pic %>
-        </p>
+          <p>
+            <strong>Contact:</strong>
+            <%= @employee.contact %>
+          </p>
 
-        <p>
-          <strong>Date of birth:</strong>
-          <%= @employee.date_of_birth %>
-        </p>
+          <p>
+            <strong>Date of birth:</strong>
+            <%= @employee.date_of_birth %>
+          </p>
 
-        <p>
-          <strong>Gender:</strong>
-          <%= @employee.gender %>
-        </p>
+          <p>
+            <strong>Gender:</strong>
+            <%= @employee.gender %>
+          </p>
 
-        <p>
-          <strong>Marital status:</strong>
-          <%= @employee.marital_status %>
-        </p>
+          <p>
+            <strong>Marital status:</strong>
+            <%= @employee.marital_status %>
+          </p>
 
-        <p>
-          <strong>Email:</strong>
-          <%= @employee.email %>
-        </p>
+          <p>
+            <strong>Email:</strong>
+            <%= @employee.email %>
+          </p>
 
-        <p>
-          <strong>Permanent address:</strong>
-          <%= @employee.permanent_address %>
-        </p>
+          <p>
+            <strong>Permanent address:</strong>
+            <%= @employee.permanent_address %>
+          </p>
 
-        <p>
-          <strong>Current address:</strong>
-          <%= @employee.current_address %>
-        </p>
+          <p>
+            <strong>Current address:</strong>
+            <%= @employee.current_address %>
+          </p>
 
-        <p>
-          <strong>City:</strong>
-          <%= @employee.city %>
-        </p>
+          <p>
+            <strong>City:</strong>
+            <%= @employee.city %>
+          </p>
 
-        <p>
-          <strong>State:</strong>
-          <%= @employee.state %>
-        </p>
+          <p>
+            <strong>State:</strong>
+            <%= @employee.state %>
+          </p>
 
-        <p>
-          <strong>Country:</strong>
-          <%= @employee.country %>
-        </p>
+          <p>
+            <strong>Country:</strong>
+            <%= @employee.country %>
+          </p>
 
-        <p>
-          <strong>Nationality:</strong>
-          <%= @employee.nationality %>
-        </p>
+          <p>
+            <strong>Nationality:</strong>
+            <%= @employee.nationality %>
+          </p>
 
-        <p>
-          <strong>Designation:</strong>
-          <%= @employee.designation %>
-        </p>
+          <p>
+            <strong>Designation:</strong>
+            <%= @employee.designation %>
+          </p>
 
-        <p>
-          <strong>Date of joining:</strong>
-          <%= @employee.date_of_joining %>
-        </p>
+          <p>
+            <strong>Date of joining:</strong>
+            <%= @employee.date_of_joining %>
+          </p>
 
-        <p>
-          <strong>Role:</strong>
-          <%= @employee.role %>
-        </p>
+          <p>
+            <strong>Skype username:</strong>
+            <%= @employee.skype_username %>
+          </p>
 
-        <p>
-          <strong>Skype username:</strong>
-          <%= @employee.skype_username %>
-        </p>
+          <p>
+            <strong>Linkedin profile url:</strong>
+            <%= @employee.linkedin_profile_url %>
+          </p>
 
-        <p>
-          <strong>Linkedin profile url:</strong>
-          <%= @employee.linkedin_profile_url %>
-        </p>
+          <p>
+            <strong>Github username:</strong>
+            <%= @employee.github_username %>
+          </p>
 
-        <p>
-          <strong>Github username:</strong>
-          <%= @employee.github_username %>
-        </p>
+          <p>
+            <strong>Aadhar uid:</strong>
+            <%= @employee.aadhar_uid %>
+          </p>
 
-        <p>
-          <strong>Aadhar uid:</strong>
-          <%= @employee.aadhar_uid %>
-        </p>
+          <p>
+            <strong>Pan uid:</strong>
+            <%= @employee.pan_uid %>
+          </p>
 
-        <p>
-          <strong>Pan uid:</strong>
-          <%= @employee.pan_uid %>
-        </p>
-
-        <p>
-          <strong>Job description:</strong>
-          <%= @employee.job_description %>
-        </p>
-        <%= link_to 'Edit', edit_admin_employee_path(@employee),class: "btn btn-info rounded-0" %> |
-        <%= link_to 'Back', admin_employees_path, class: "btn btn-secondary rounded-0" %>
+          <p>
+            <strong>Job description:</strong>
+            <%= @employee.job_description %>
+          </p>
+          <%= link_to 'Edit', edit_admin_employee_path(@employee),class: "btn btn-info rounded-0" %> |
+          <%= link_to 'Back', admin_employees_path, class: "btn btn-secondary rounded-0" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow rounded-0 mt-5 mb-4">
+        <div class="card-body">
+          <h5 class="text-muted font-weight-bold text-center">Employee Relatives</h5>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Relation</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @relatives.each do |relative| %>
+                <tr>
+                  <td><%= relative.name %></td>
+                  <td><%= relative.relation %></td>
+                  <td>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary btn-sm">Actions</button>
+                      <button 
+                      type="button" 
+                      class="btn btn-primary btn-sm dropdown-toggle dropdown-toggle-split"
+                      id="dropdownMenuReference" 
+                      data-toggle="dropdown" 
+                      aria-haspopup="true" 
+                      aria-expanded="false" 
+                      data-reference="parent">
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                        <%= link_to "Show", admin_relative_path(relative, employee_id: @employee.id), class: "dropdown-item" %>
+                        <%= link_to "Edit", edit_admin_relative_path(relative, employee_id: @employee.id), class: "dropdown-item" %>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= link_to "Add Employee Relative", new_admin_relative_path(employee_id: @employee.id), class: "btn btn-primary shadow rounded-0" %>
+        </div>
+      </div>
+      <div class="card shadow rounded-0 mt-5 mb-4">
+        <div class="card-body">
+          <h5 class="text-muted font-weight-bold text-center">Employee Education Credentials</h5>
+          <%= link_to "Add Employee Credentials", new_admin_education_credential_path(employee_id: @employee.id), class: "btn btn-primary shadow rounded-0" %>
+        </div>
+      </div>
+      <div class="card shadow rounded-0 mt-5 mb-4">
+        <div class="card-body">
+          <h5 class="text-muted font-weight-bold text-center">Employee References</h5>
+          <%= link_to "Add Employee References", new_admin_reference_person_path(employee_id: @employee.id), class: "btn btn-primary shadow rounded-0" %>
+        </div>
       </div>
     </div>
   </div>

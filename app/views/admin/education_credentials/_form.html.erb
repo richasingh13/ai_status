@@ -12,6 +12,7 @@
             </ul>
           </div>
         <% end %>
+        <%= form.hidden_field :employee_id, value: @employee.id %>
         <div class="card shadow rounded-0">
           <div class="card-body">
             <div class="row">
@@ -43,17 +44,10 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= form.label :employee_id %>
-                  <%= form.select :employee_id, options_for_select(Employee.all.map { |employee| [employee.name, employee.id] }, selected: education_credential.employee ), { prompt: "Select Employee" }, { class: "form-control rounded-0" } %>
-                </div>
-              </div>
-            </div>
-            <div class="row">
               <div class="col-12">
                 <div class="actions">
-                  <%= form.submit class: "btn btn-primary rounded-0 shadow" %>
+                  <%= form.submit class: "btn btn-primary rounded-0 ml-3" %>
+                  <%= link_to 'Back', admin_employee_path(@employee), class: "btn btn-dark ml-2 rounded-0" %>
                 </div>
               </div>
             </div>

@@ -1,35 +1,28 @@
 class Admin::RelativesController < ApplicationController
   load_and_authorize_resource
   before_action :set_relative, only: [:show, :edit, :update, :destroy]
-
-  # GET /relatives
-  # GET /relatives.json
+  before_action :set_employee, only: [:show, :edit, :new]
+  before_action :set_employee_for_form, only: [:create, :update]
   def index
     @relatives = Relative.all
   end
 
-  # GET /relatives/1
-  # GET /relatives/1.json
   def show
   end
 
-  # GET /relatives/new
   def new
     @relative = Relative.new
   end
 
-  # GET /relatives/1/edit
   def edit
   end
 
-  # POST /relatives
-  # POST /relatives.json
   def create
     @relative = Relative.new(relative_params)
 
     respond_to do |format|
       if @relative.save
-        format.html { redirect_to admin_relative_path(@relative), notice: 'Relative was successfully created.' }
+        format.html { redirect_to admin_employee_path(@employee), notice: 'Relative was successfully created.' }
         format.json { render :show, status: :created, location: @relative }
       else
         format.html { render :new }
@@ -38,8 +31,6 @@ class Admin::RelativesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /relatives/1
-  # PATCH/PUT /relatives/1.json
   def update
     respond_to do |format|
       if @relative.update(relative_params)
@@ -52,8 +43,6 @@ class Admin::RelativesController < ApplicationController
     end
   end
 
-  # DELETE /relatives/1
-  # DELETE /relatives/1.json
   def destroy
     @relative.destroy
     respond_to do |format|
@@ -63,13 +52,20 @@ class Admin::RelativesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_relative
       @relative = Relative.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def set_employee
+      @employee = Employee.find(params[:employee_id])
+    end
+
+    def set_employee_for_form
+      @employee = Employee.find(params[:relative][:employee_id])
+    end
+
     def relative_params
-      params.require(:relative).permit(:name, :relation, :contact_number, :address, :user_id)
+      params.require(:relative).permit!
     end
 end

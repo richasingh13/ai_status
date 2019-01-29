@@ -2,7 +2,8 @@ class Admin::EducationCredentialsController < ApplicationController
   load_and_authorize_resource
   before_action :set_education_credential, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-
+  before_action :set_employee
+  
   def index
     @education_credentials = EducationCredential.all
   end
@@ -55,6 +56,10 @@ class Admin::EducationCredentialsController < ApplicationController
     
     def set_education_credential
       @education_credential = EducationCredential.find(params[:id])
+    end
+
+    def set_employee
+      @employee = Employee.find(params[:employee_id])
     end
 
     def education_credential_params

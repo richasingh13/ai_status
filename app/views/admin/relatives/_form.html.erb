@@ -13,6 +13,7 @@
             </ul>
           </div>
         <% end %>
+        <%= form.hidden_field :employee_id, value: @employee.id %>
         <div class="card shadow rounded-0">
           <div class="card-body">
             <div class="row">
@@ -47,7 +48,8 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <div class="actions mt-3">
-                    <%= form.submit class: "btn btn-primary rounded-0" %>
+                    <%= form.submit class: "btn btn-primary rounded-0 ml-3" %>
+                    <%= link_to 'Back', admin_employee_path(@employee), class: "btn btn-dark ml-2 rounded-0" %>
                   </div>  
                 </div>
               </div>

@@ -1,198 +1,208 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-2">
-      <%= form_for [:admin, employee] do |form| %>
-        <% if employee.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
-
-          <ul>
-            <% employee.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-            <% end %>
-          </ul>
+<%= form_for [:admin, employee] do |f| %>
+  <% if employee.errors.present? %>
+    <% employee.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  <% end %>
+  <div class="col-md-8 offset-2">
+    <div class="card shadow rounded-0 mt-4 mb-3">
+      <div class="card-body">
+        <h5 class="text-muted">Personal Information</h5>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name, class: "form-control rounded-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name, class: "form-control rounded-0" %>
+            </div>
+          </div>
         </div>
-        <% end  %>
-      <div class="card shadow rounded-0">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :first_name %>
-                <%= form.text_field :first_name, class: "form-control rounded-0" %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :last_name %>
-                <%= form.text_field :last_name, class: "form-control rounded-0" %>
-              </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :contact %>
+              <%= f.text_field :contact, class: "form-control rounded-0" %>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :contact %>
-                <%= form.text_field :contact, class: "form-control rounded-0" %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :profile_pic %>
-                <%= form.text_field :profile_pic, class: "form-control rounded-0" %>
-              </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :profile_pic %><br>
+              <%= f.file_field :profile_pic %>
             </div>
           </div>
-          <div class="row">
-             <div class="col-md-6"> 
-              <%= form.label :date_of_birth %>
-                <div class="input-group mb-3">
-                  <%= form.text_field :date_of_birth, class: "form-control datepicker rounded-0","aria-describedby" => "basic-addon2" %>
-                  <div class="input-group-append">
-                    <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar"></i></span>
-                  </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :gender %>
-                  <%= form.select :gender, options_for_select(Employee::GENDER, selected: @employee.gender), { prompt: "Select Gender" }, { class: "form-control rounded-0" } %>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :marital_status %>
-                  <%= form.select :marital_status, options_for_select(Employee::MARITAL_STATUS, selected: @employee.marital_status), { prompt: "Select Status" }, { class: "form-control rounded-0" } %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :email %>
-                <%= form.text_field :email, class: "form-control rounded-0" %>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :permanent_address %>
-                <%= form.text_field :permanent_address, class: "form-control rounded-0" %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :current_address %>
-                <%= form.text_field :current_address, class: "form-control rounded-0" %>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :city %>
-                <%= form.text_field :city, class: "form-control rounded-0" %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :state %>
-                <%= form.text_field :state, class: "form-control rounded-0" %>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :country %>
-                <%= form.country_select  :country, {}, {class: "form-control rounded-0"} %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :nationality %>
-               <%= form.country_select  :nationality, {}, {class: "form-control rounded-0"} %>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :designation %>
-                <%= form.text_field :designation, class: "form-control rounded-0" %>
-              </div>
-            </div>
-            <div class="col-md-6"> 
-              <%= form.label :date_of_joining %>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.label :date_of_birth %>
               <div class="input-group mb-3">
-                <%= form.text_field :date_of_joining, class: "form-control datepicker rounded-0","aria-describedby" => "basic-addon2" %>
+                <%= f.text_field :date_of_birth, class: "form-control datepicker rounded-0","aria-describedby" => "basic-addon2" %>
                 <div class="input-group-append">
                   <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar"></i></span>
                 </div>
-              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-               <%= form.label :role %>
-                <%= form.text_field :role, class: "form-control rounded-0" %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :skype_username %>
-                <%= form.text_field :skype_username, class: "form-control rounded-0" %>
-              </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :gender %>
+              <%= f.select :gender, options_for_select(Employee::GENDER, selected: employee.gender), { prompt: "Select Gender" }, { class: "form-control rounded-0" } %>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :linkedin_profile_url %>
-                <%= form.text_field :linkedin_profile_url, class: "form-control rounded-0" %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :github_username %>
-                <%= form.text_field :github_username, class: "form-control rounded-0" %>
-              </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :marital_status %>
+              <%= f.select :marital_status, options_for_select(Employee::MARITAL_STATUS, selected: @employee.marital_status), { prompt: "Select Status" }, { class: "form-control rounded-0" } %>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :aadhar_uid %>
-                <%= form.text_field :aadhar_uid, class: "form-control rounded-0" %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :pan_uid %>
-                <%= form.text_field :pan_uid, class: "form-control rounded-0", class: "form-control rounded-0" %>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <%= form.label :job_description %>
-                <%= form.text_area :job_description, class: "form-control rounded-0", rows: "7" %>
-              </div>
-            </div>
-          </div>
-          <div class="actions">
-            <%= form.submit class: "btn btn-primary rounded-0" %>
-          </div>
-          <% end %>
         </div>
       </div>
     </div>
+    
+    <div class="card shadow rounded-0 mt-5 mb-3">
+      <div class="card-body">
+        <h5 class="text-muted">Account Information</h5>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :Email %>
+              <%= f.text_field :email, class: "form-control rounded-0" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow rounded-0 mt-5 mb-3">
+      <div class="card-body">
+        <h5 class="text-muted">Address Information</h5>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :permanent_address %>
+              <%= f.text_field :permanent_address, class: "form-control rounded-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :current_address %>
+              <%= f.text_field :current_address, class: "form-control rounded-0"  %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :city %>
+              <%= f.text_field :city, class: "form-control rounded-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :state %>
+              <%= f.text_field :state, class: "form-control rounded-0"  %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :country %>
+              <%= f.country_select  :country, {}, {class: "form-control rounded-0"} %> 
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :nationality %>
+              <%= f.country_select  :nationality, {}, {class: "form-control rounded-0"} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow rounded-0 mt-5 mb-3">
+      <div class="card-body">
+        <h5 class="text-muted">Employeement Information</h5>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :designation %>
+              <%= f.text_field :designation, class: "form-control rounded-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <%= f.label :date_of_joining %>
+            <div class="input-group mb-3">
+              <%= f.text_field :date_of_joining, class: "form-control datepicker rounded-0","aria-describedby" => "basic-addon2" %>
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :skype_username %>
+              <%= f.text_field :skype_username, class: "form-control rounded-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :linkedin_profile_url %>
+              <%= f.text_field :linkedin_profile_url, class: "form-control rounded-0" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :github_username %>
+              <%= f.text_field :github_username, class: "form-control rounded-0" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :aadhar_uid %>
+              <%= f.text_field :aadhar_uid, class: "form-control rounded-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :pan_uid %>
+              <%= f.text_field :pan_uid, class: "form-control rounded-0" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= f.label :job_description %>
+              <%= f.text_area :job_description, class: "form-control rounded-0", rows: "7" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 mb-5">
+        <%= f.submit class: "btn btn-primary rounded-0 shadow"  %>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>
+
+
+
 <script type="text/javascript">
   $(function () {
     $(".datepicker").datepicker({ 
