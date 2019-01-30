@@ -2,7 +2,8 @@ class Admin::EducationCredentialsController < ApplicationController
   load_and_authorize_resource
   before_action :set_education_credential, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :set_employee
+  before_action :set_employee, only: [:show, :edit, :new]
+  before_action :set_employee_for_form, only: [:create, :update]
   
   def index
     @education_credentials = EducationCredential.all
@@ -62,7 +63,11 @@ class Admin::EducationCredentialsController < ApplicationController
       @employee = Employee.find(params[:employee_id])
     end
 
+    def set_employee_for_form
+      @employee = Employee.find(params[:education_credential][:employee_id])
+    end
+
     def education_credential_params
-      params.require(:education_credential).permit(:course, :university, :percentage, :course_type, :user_id)
+      params.require(:education_credential).permit!
     end
 end
