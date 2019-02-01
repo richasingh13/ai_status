@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4 offset-4">
+    <div class="col-md-6 offset-3">
       <%= form_for [:admin, document] do |form| %>
       <% if document.errors.any? %>
       <div id="error_explanation">
@@ -14,22 +14,23 @@
       </div>
       <% end %>
       <div class="alert alert-primary rounded-0" role="alert">
+        <%= form.hidden_field :employee_id, value: @employee.id %>
         <div class="card shadow rounded-0">
           <div class="card-body">
-            <div class="row ml-3">
-              <div class="form-group">
-                <%= form.label :document_name %>
-                <%= form.text_field :document_name, class: "form-control rounded-0" %>
-              </div>
+            <div class="form-group">
+              <%= form.label :document_name %>
+              <%= form.text_field :document_name, class: "form-control rounded-0" %>
             </div>
-            <div class="row ml-3">
-              <div class="form-group">
-                <%= form.label :employee_id %>
-                <%= form.text_field :employee_id, class: "form-control rounded-0" %>
-              </div>
+            <div class="form-group">
+              <%= form.label :document_type %>
+              <%= form.select :document_type, options_for_select(Document::DOCUMENT_TYPE, selected: document.document_type), { prompt: "Select Document Type" }, { class: "form-control rounded-0" } %>
+            </div>
+            <div class="form-group">
+              <%= form.label :attachment %><br>
+              <%= form.file_field :attachment %>
             </div>
             <div class="actions">
-              <%= form.submit class: "btn btn-primary rounded-0 mt-3 ml-3"%>
+              <%= form.submit class: "btn btn-primary rounded-0 mt-3"%>
             </div>
             <% end %>
           </div>

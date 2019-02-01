@@ -1,9 +1,10 @@
 class DailyStatusesController < ApplicationController
   before_action :set_daily_status, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :set_current_employee
 
   def index
-    @daily_statuses = current_user.daily_statuses.all
+    @daily_statuses = @employee.daily_statuses
   end
 
   def show
@@ -17,7 +18,7 @@ class DailyStatusesController < ApplicationController
   end
 
   def create
-    @daily_status = current_user.daily_statuses.new(daily_status_params)
+    @daily_status = @employee.daily_statuses.new(daily_status_params)
 
     respond_to do |format|
       if @daily_status.save
@@ -54,6 +55,10 @@ class DailyStatusesController < ApplicationController
     
     def set_daily_status
       @daily_status = DailyStatus.find(params[:id])
+    end
+
+    def set_current_employee
+      @employee = Employee.find_by(email: current_user.email)
     end
 
     def daily_status_params

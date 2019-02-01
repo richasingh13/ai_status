@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <h3 class="text-center mb-4">Relatives</h3>
+  <div class="table-responsive">
     <table class="table table-hover">
       <thead>
         <tr>
@@ -26,7 +27,10 @@
         <% end %>
       </tbody>
     </table>
-  <%= link_to 'New Relative', new_admin_relative_path, class: "btn btn-primary mb-5 rounded-0" %>
+  </div>
+  <div class="mt-5">  
+    <%= link_to 'New Relative', new_admin_relative_path, class: "btn btn-primary mb-5 rounded-0" %>
+  </div>
 </div>
 
 

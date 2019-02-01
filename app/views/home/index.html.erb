@@ -15,7 +15,7 @@
         <div class="row">
           <div class="col-md-4 text-center">
             <%= image_tag "user-dummy.png", class: "img-fluid rounded-circle" %>
-            <h6 class="font-weight-bold mt-2"><%= current_user.email %></h6>
+            <h6 class="font-weight-bold mt-2"><%= @employee.email %></h6>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-primary" %>
             <%= link_to "View Profile", profile_path, class: "btn btn-sm btn-primary" %>
           </div>

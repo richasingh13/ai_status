@@ -1,7 +1,8 @@
 class Admin::ReferencePeopleController < ApplicationController
   load_and_authorize_resource
   before_action :set_reference_person, only: [:show, :edit, :update, :destroy]
-  before_action :set_employee
+  before_action :set_employee, only: [:show, :edit, :new]
+  before_action :set_employee_for_form, only: [:create, :update]
 
   def index
     @reference_people = ReferencePerson.all
@@ -22,7 +23,7 @@ class Admin::ReferencePeopleController < ApplicationController
 
     respond_to do |format|
       if @reference_person.save
-        format.html { redirect_to admin_reference_person_path(@reference_person), notice: 'Reference person was successfully created.' }
+        format.html { redirect_to admin_employee_path(@employee), notice: 'Reference person was successfully created.' }
         format.json { render :show, status: :created, location: @reference_person }
       else
         format.html { render :new }
@@ -34,7 +35,7 @@ class Admin::ReferencePeopleController < ApplicationController
   def update
     respond_to do |format|
       if @reference_person.update(reference_person_params)
-        format.html { redirect_to admin_reference_person_path(@reference_person), notice: 'Reference person was successfully updated.' }
+        format.html { redirect_to admin_employee_path(@employee), notice: 'Reference person was successfully updated.' }
         format.json { render :show, status: :ok, location: @reference_person }
       else
         format.html { render :edit }
@@ -61,7 +62,11 @@ class Admin::ReferencePeopleController < ApplicationController
       @employee = Employee.find(params[:employee_id])
     end
 
+    def set_employee_for_form
+      @employee = Employee.find(params[:reference_person][:employee_id])
+    end
+
     def reference_person_params
-      params.require(:reference_person).permit(:name, :contact, :email, :currently_worked_at, :address, :how_connected, :user_id)
+      params.require(:reference_person).permit!
     end
 end

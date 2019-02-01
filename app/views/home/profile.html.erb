@@ -85,19 +85,15 @@
                 <strong>Date of Joining:</strong>
                 <%= @employee.date_of_joining %>
               </p>
-               <p>
-                <strong>Role:</strong>
-                <%= @employee.role %>
-              </p>
-               <p>
+              <p>
                 <strong>Skype Username:</strong>
                 <%= @employee.skype_username %>
               </p>
-               <p>
+              <p>
                 <strong>Linkedin Profile Url:</strong>
                 <%= @employee.linkedin_profile_url %>
               </p>
-               <p>
+              <p>
                 <strong>GitHub UserName:</strong>
                 <%= @employee.github_username %>
               </p>
@@ -105,7 +101,7 @@
                 <strong>Aadhar Uid:</strong>
                 <%= @employee.aadhar_uid %>
               </p>
-               <p>
+              <p>
                 <strong>Pan Uid:</strong>
                 <%= @employee.pan_uid %>
               </p>
@@ -124,7 +120,7 @@
               <%= link_to "Home", root_path, class: "btn btn-primary shadow rounded-0" %>
             </div>
           </div>
-          <% if @user.education_credentials.present? %>
+          <% if @employee.education_credentials.present? %>
             <div class="card shadow rounded-0 mt-5 mb-5">
               <div class="card-body">
                 <h4 class="text-center text-muted">My Education Credentials</h4>
@@ -137,7 +133,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% @user.education_credentials.each do |edu| %>
+                    <% @employee.education_credentials.each do |edu| %>
                       <tr>
                         <td><%= edu.course %></td>
                         <td><%= edu.course_type %></td>
@@ -164,7 +160,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% @user.relatives.each do |relative| %>
+                    <% @employee.relatives.each do |relative| %>
                       <tr>
                         <td><%= relative.name %></td>
                         <td><%= relative.relation %></td>

@@ -1,13 +1,12 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_current_user
+  before_action :set_current_employee
   
   def index
-    @daily_statuses = current_user.daily_statuses
+    @daily_statuses = @employee.daily_statuses
   end
 
   def profile
-     @employee = Employee.find(params[:id])
   end
 
   def edit_profile
@@ -23,8 +22,12 @@ class HomeController < ApplicationController
 
   private
 
-    def set_current_user
-      @user = current_user
+    # def set_current_user
+    #   @user = current_user
+    # end
+
+    def set_current_employee
+      @employee = Employee.find_by(email: current_user.email)
     end
 
     def user_params

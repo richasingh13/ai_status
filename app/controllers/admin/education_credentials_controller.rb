@@ -24,7 +24,7 @@ class Admin::EducationCredentialsController < ApplicationController
 
     respond_to do |format|
       if @education_credential.save
-        format.html { redirect_to admin_education_credential_path(@education_credential), notice: 'Education credential was successfully created.' }
+        format.html { redirect_to admin_employee_path(@employee), notice: 'Education credential was successfully created.' }
         format.json { render :show, status: :created, location: @education_credential }
       else
         format.html { render :new }
@@ -36,7 +36,7 @@ class Admin::EducationCredentialsController < ApplicationController
   def update
     respond_to do |format|
       if @education_credential.update(education_credential_params)
-        format.html { redirect_to admin_education_credential_path(@education_credential), notice: 'Education credential was successfully updated.' }
+        format.html { redirect_to admin_employee_path(@employee), notice: 'Education credential was successfully updated.' }
         format.json { render :show, status: :ok, location: @education_credential }
       else
         format.html { render :edit }

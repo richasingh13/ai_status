@@ -1,7 +1,9 @@
 class Admin::DocumentsController < ApplicationController
   load_and_authorize_resource
   before_action :set_document, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  before_action :set_employee, only: [:show, :edit, :new]
+  before_action :set_employee_for_form, only: [:create, :update]
   # GET /documents
   # GET /documents.json
   def index
@@ -29,7 +31,7 @@ class Admin::DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save
-        format.html { redirect_to admin_document_path(@document), notice: 'Document was successfully created.' }
+        format.html { redirect_to admin_employee_path(@employee), notice: 'Document was successfully created.' }
         format.json { render :show, status: :created, location: @document }
       else
         format.html { render :new }
@@ -43,7 +45,7 @@ class Admin::DocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @document.update(document_params)
-        format.html { redirect_to admin_document_path(@document), notice: 'Document was successfully updated.' }
+        format.html { redirect_to admin_employee_path(@employee), notice: 'Document was successfully updated.' }
         format.json { render :show, status: :ok, location: @document }
       else
         format.html { render :edit }
@@ -68,8 +70,16 @@ class Admin::DocumentsController < ApplicationController
       @document = Document.find(params[:id])
     end
 
+    def set_employee
+      @employee = Employee.find(params[:employee_id])
+    end
+
+    def set_employee_for_form
+      @employee = Employee.find(params[:document][:employee_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:document_name, :employee_id)
+      params.require(:document).permit!
     end
 end

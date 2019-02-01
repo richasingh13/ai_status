@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_29_171939) do
+ActiveRecord::Schema.define(version: 2019_02_01_115505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 2019_01_29_171939) do
     t.string "in_time"
     t.string "out_time"
     t.string "break"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "status_date"
-    t.index ["user_id"], name: "index_daily_statuses_on_user_id"
+    t.bigint "employee_id"
+    t.index ["employee_id"], name: "index_daily_statuses_on_employee_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2019_01_29_171939) do
     t.bigint "employee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "document_type"
+    t.string "attachment"
     t.index ["employee_id"], name: "index_documents_on_employee_id"
   end
 
@@ -121,7 +123,7 @@ ActiveRecord::Schema.define(version: 2019_01_29_171939) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "daily_statuses", "users"
+  add_foreign_key "daily_statuses", "employees"
   add_foreign_key "documents", "employees"
   add_foreign_key "tasks", "daily_statuses"
 end

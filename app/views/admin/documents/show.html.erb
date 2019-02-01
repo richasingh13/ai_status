@@ -9,12 +9,14 @@
               <strong>Document name:</strong>
               <%= @document.document_name %>
             </p>
-
             <p>
-              <strong>Employee:</strong>
-              <%= @document.employee %>
+              <strong>Document Type:</strong>
+              <%= @document.document_type %>
             </p>
-
+            <p>
+              <strong>Attachments:</strong>
+              <%= @document.Attachments.url %>
+            </p>
             <%= link_to 'Edit', edit_admin_document_path(@document), class: "btn btn-info rounded-0" %> 
             <%= link_to 'Back', admin_documents_path, class: "btn btn-secondary rounded-0" %>
           </div>
