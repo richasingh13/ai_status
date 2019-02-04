@@ -1,7 +1,7 @@
 class UserProfileController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_current_user
+  before_action :set_current_employee
 
 
   def edit_personal_info
@@ -14,27 +14,31 @@ class UserProfileController < ApplicationController
   end
 
   def update_personal_info
-    if @user.update(personal_params)
+    if @employee.update(personal_params)
       redirect_to profile_path, flash: { success: "Personal info has been updated successfully" }
     end
   end
 
   def update_address_info
-    if @user.update(address_params)
+    if @employee.update(address_params)
       redirect_to profile_path, flash: { success: "Address info has been updated successfully" }
     end
   end
 
   def update_job_info
-    if @user.update(job_params)
+    if @employee.update(job_params)
       redirect_to profile_path, flash: { success: "Job info has been updated successfully" }
     end
   end
 
   private
 
-    def set_current_user
-      @user = current_user
+    # def set_current_user
+    #   @user = current_user
+    # end
+
+    def set_current_employee
+      @employee = Employee.find_by(email: current_user.email)
     end
 
     def address_params

@@ -10,6 +10,7 @@ class HomeController < ApplicationController
   end
 
   def edit_profile
+    
   end
 
   def update_profile
@@ -22,10 +23,7 @@ class HomeController < ApplicationController
 
   private
 
-    # def set_current_user
-    #   @user = current_user
-    # end
-
+   
     def set_current_employee
       @employee = Employee.find_by(email: current_user.email)
     end

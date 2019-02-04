@@ -148,110 +148,80 @@
             <% @education_credentials.each do |education_credential| %>
               <div class="card mt-3 rounded-0">
                 <div class="card-header">
-                  <h5 data-toggle="collapse" href="#collapse_<%= education_credential.id %>" style="cursor: pointer;">
+                  <h5 data-toggle="collapse" href="#collapse1_<%= education_credential.id %>" style="cursor: pointer;">
                     <%= education_credential.course %>
                   </h5>
                 </div>
-                <div id="collapse_<%= education_credential.id %>" class="collapse" data-parent="#accordion">
+                <div id="collapse1_<%= education_credential.id %>" class="collapse" data-parent="#accordion">
                   <div class="card-body">
-                    <h6 class="font-weight-bold text-muted"><font class="text-dark">Relation:</font> <%= education_credential.relation %> </h6>
-                    <h6 class="font-weight-bold text-muted"><font class="text-dark">Contact Number:</font> <%= education_credential.contact_number %> </h6>
-                    <h6 class="font-weight-bold text-muted"><font class="text-dark">Address:</font> <%= education_credential.address %> </h6>
+                    <h6 class="font-weight-bold text-muted"><font class="text-dark">Course:</font> <%= education_credential.course %> </h6>
+                    <h6 class="font-weight-bold text-muted"><font class="text-dark">University :</font> <%= education_credential.university %> </h6>
+                    <h6 class="font-weight-bold text-muted"><font class="text-dark">Percentage :</font> <%= education_credential.percentage %> </h6>
+                    <h6 class="font-weight-bold text-muted"><font class="text-dark">Course Type :</font> <%= education_credential.course_type %> </h6>
                   </div>
                 </div>
               </div>
             <% end %>  
             <div class="mt-3">
-              <%= link_to "Add Employee Relative", new_admin_relative_path(employee_id: @employee.id), class: "btn btn-primary shadow rounded-0" %>
+              <%= link_to "Add Employee Education Credential", new_admin_education_credential_path(employee_id: @employee.id), class: "btn btn-primary shadow rounded-0" %>
             </div> 
           </div>   
         </div>
       </div>
-        <div class="card shadow rounded-0 mt-5 mb-4">
-          <div class="card-body">
-            <h5 class="text-muted font-weight-bold text-center">Employee References</h5>
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @reference_people.each do |reference_people| %>
-                  <tr>
-                    <td><%= reference_people.name %></td>
-                    <td><%= reference_people.email %></td>
-                    <td>
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-primary btn-sm">Actions</button>
-                        <button 
-                        type="button" 
-                        class="btn btn-primary btn-sm dropdown-toggle dropdown-toggle-split"
-                        id="dropdownMenuReference" 
-                        data-toggle="dropdown" 
-                        aria-haspopup="true" 
-                        aria-expanded="false" 
-                        data-reference="parent">
-                          <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                          <%= link_to "Show", admin_reference_person_path(reference_people, employee_id: @employee.id), class: "dropdown-item" %>
-                          <%= link_to "Edit", edit_admin_reference_person_path(reference_people, employee_id: @employee.id), class: "dropdown-item" %>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-            <%= link_to "Add Employee References", new_admin_reference_person_path(employee_id: @employee.id), class: "btn btn-primary shadow rounded-0" %>
-          </div>
+      <div class="card shadow rounded-0 mt-5 mb-4">
+        <div class="card-body">
+          <h5 class="text-muted font-weight-bold text-center">Employee References</h5>
+          <div id="accordion">
+            <% @reference_people.each do |reference_people| %>
+              <div class="card mt-3 rounded-0">
+                <div class="card-header">
+                  <h5 data-toggle="collapse" href="#collapse2_<%= reference_people.id %>" style="cursor: pointer;">
+                    <%= reference_people.name %>
+                  </h5>
+                </div>
+                <div id="collapse2_<%= reference_people.id %>" class="collapse" data-parent="#accordion">
+                  <div class="card-body">
+                    <h6 class="font-weight-bold text-muted"><font class="text-dark">Email:</font> <%= reference_people.email %> </h6>
+                    <h6 class="font-weight-bold text-muted"><font class="text-dark">Contact :</font> <%= reference_people.contact %> </h6>
+                    <h6 class="font-weight-bold text-muted"><font class="text-dark">Cuurent Work At :</font> <%= reference_people.currently_worked_at %> </h6>
+                    <h6 class="font-weight-bold text-muted"><font class="text-dark">Address:</font> <%= reference_people.address %> </h6>
+                    <h6 class="font-weight-bold text-muted"><font class="text-dark">How Connected:</font> <%= reference_people.how_connected %> </h6>
+                  </div>
+                </div>
+              </div>
+            <% end %>  
+            <div class="mt-3">
+              <%= link_to "Add Employee References", new_admin_reference_person_path(employee_id: @employee.id), class: "btn btn-primary shadow rounded-0" %>
+            </div> 
+          </div>   
         </div>
-        <div class="card shadow rounded-0 mt-5 mb-4">
-          <div class="card-body">
-            <h5 class="text-muted font-weight-bold text-center">Employee References</h5>
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>Document Name</th>
-                  <th>Document Type</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @documents.each do |document| %>
-                  <tr>
-                    <td><%= document.document_name %></td>
-                    <td><%= document.document_type %></td>
-                    <td>
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-primary btn-sm">Actions</button>
-                        <button 
-                        type="button" 
-                        class="btn btn-primary btn-sm dropdown-toggle dropdown-toggle-split"
-                        id="dropdownMenuReference" 
-                        data-toggle="dropdown" 
-                        aria-haspopup="true" 
-                        aria-expanded="false" 
-                        data-reference="parent">
-                          <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                          <%= link_to "Show", admin_document_path(document, employee_id: @employee.id), class: "dropdown-item" %>
-                          <%= link_to "Edit", edit_admin_document_path(document, employee_id: @employee.id), class: "dropdown-item" %>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-            <%= link_to "Add Employee Document", new_admin_document_path(employee_id: @employee.id), class: "btn btn-primary shadow rounded-0" %>
-          </div>
+      </div>
+      <div class="card shadow rounded-0 mt-5 mb-4">
+        <div class="card-body">
+          <h5 class="text-muted font-weight-bold text-center">Employee Documents</h5>
+          <div id="accordion">
+            <% @documents.each do |document| %>
+              <div class="card mt-3 rounded-0">
+                <div class="card-header">
+                  <h5 data-toggle="collapse" href="#collapse3_<%= document.id %>" style="cursor: pointer;">
+                    <%= document.document_name %>
+                  </h5>
+                </div>
+                <div id="collapse3_<%= document.id %>" class="collapse" data-parent="#accordion">
+                  <div class="card-body">
+                    <h6 class="font-weight-bold text-muted"><font class="text-dark">Document Type:</font> <%= document.document_type %> </h6>
+                    <h6 class="font-weight-bold text-muted"><font class="text-dark">
+                    Attachment :</font> <%= document.attachment %> </h6>
+                  </div>
+                </div>
+              </div>
+            <% end %>  
+            <div class="mt-3">
+              <%= link_to "Add Employee References", new_admin_reference_person_path(employee_id: @employee.id), class: "btn btn-primary shadow rounded-0" %>
+            </div> 
+          </div>   
         </div>
-      </div>  
+      </div>
     </div>
   </div>
 </div>

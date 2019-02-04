@@ -1,9 +1,9 @@
  <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <%= form_for @user, url: :home_update_profile, method: :patch do |f| %>
-        <% if @user.errors.present? %>
-          <% @user.errors.full_messages.each do |message| %>
+      <%= form_for @employee, url: :home_update_profile, method: :patch do |f| %>
+        <% if @employee.errors.present? %>
+          <% @employee.errors.full_messages.each do |message| %>
             <p><%= message %></p>
           <% end %>
         <% end %>
@@ -51,7 +51,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <%= f.label :gender %>
-                  <%= f.select :gender, options_for_select(User::GENDER, selected: @user.gender), { prompt: "Select Gender" }, { class: "form-control rounded-0" } %>
+                  <%= f.select :gender, options_for_select(Employee::GENDER, selected: @employee.gender), { prompt: "Select Gender" }, { class: "form-control rounded-0" } %>
                 </div>
               </div>
             </div>
@@ -59,7 +59,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <%= f.label :marital_status %>
-                  <%= f.select :marital_status, options_for_select(User::MARITAL_STATUS, selected: @user.marital_status), { prompt: "Select Status" }, { class: "form-control rounded-0" } %>
+                  <%= f.select :marital_status, options_for_select(Employee::MARITAL_STATUS, selected: @employee.marital_status), { prompt: "Select Status" }, { class: "form-control rounded-0" } %>
                 </div>
               </div>
             </div>
@@ -161,12 +161,12 @@
 
             </div>
             <div class="row">
-              <div class="col-md-6">
+             <!--  <div class="col-md-6">
                 <div class="form-group">
-                  <%= f.label :role %>
-                  <%= f.select :role, options_for_select(User::ROLE, selected: @user.role), { prompt: "Select Role" }, { class: "form-control rounded-0" } %>
+                  <%#= f.label :role %>
+                  <%#= f.select :role, options_for_select(User::ROLE, selected: @user.role), { prompt: "Select Role" }, { class: "form-control rounded-0" } %>
                 </div>
-              </div>
+              </div> -->
               <div class="col-md-6">
                 <div class="form-group">
                   <%= f.label :skype_username %>

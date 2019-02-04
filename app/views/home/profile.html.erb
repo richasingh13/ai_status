@@ -124,24 +124,26 @@
             <div class="card shadow rounded-0 mt-5 mb-5">
               <div class="card-body">
                 <h4 class="text-center text-muted">My Education Credentials</h4>
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Type</th>
-                      <th>Board/University</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% @employee.education_credentials.each do |edu| %>
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
                       <tr>
-                        <td><%= edu.course %></td>
-                        <td><%= edu.course_type %></td>
-                        <td><%= edu.university %></td>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Board/University</th>
                       </tr>
-                    <% end %>
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      <% @employee.education_credentials.each do |edu| %>
+                        <tr>
+                          <td><%= edu.course %></td>
+                          <td><%= edu.course_type %></td>
+                          <td><%= edu.university %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>  
               </div>
             </div>
           <% end %>
@@ -150,30 +152,31 @@
             <div class="card shadow rounded-0 mt-5 mb-5">
               <div class="card-body">
                 <h4 class="text-center text-muted">My Relatives</h4>
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Relation</th>
-                      <th>Contact</th>
-                      <th>Address</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% @employee.relatives.each do |relative| %>
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
                       <tr>
-                        <td><%= relative.name %></td>
-                        <td><%= relative.relation %></td>
-                        <td><%= relative.contact_number %></td>
-                        <td><%= relative.address %></td>
+                        <th>Name</th>
+                        <th>Relation</th>
+                        <th>Contact</th>
+                        <th>Address</th>
                       </tr>
-                    <% end %>
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      <% @employee.relatives.each do |relative| %>
+                        <tr>
+                          <td><%= relative.name %></td>
+                          <td><%= relative.relation %></td>
+                          <td><%= relative.contact_number %></td>
+                          <td><%= relative.address %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>  
               </div>
             </div>
           <% end %>
-
         </div>
       </div>
     </div>
@@ -181,7 +184,7 @@
 </div>
 
 <div 
-  class="modal fade" 
+  class="modal fade pr-0" 
   id="jobInfoModal" 
   tabindex="-1" 
   role="dialog" 
@@ -190,7 +193,7 @@
 </div>
 
 <div 
-  class="modal fade" 
+  class="modal fade pr-0" 
   id="addressInfoModal" 
   tabindex="-1" 
   role="dialog" 
@@ -199,7 +202,7 @@
 </div>
 
 <div 
-  class="modal fade" 
+  class="modal fade pr-0" 
   id="personalInfoModal" 
   tabindex="-1" 
   role="dialog" 
