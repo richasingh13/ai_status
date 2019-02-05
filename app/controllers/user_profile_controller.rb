@@ -15,6 +15,8 @@ class UserProfileController < ApplicationController
 
   def update_personal_info
     if @employee.update(personal_params)
+      @user = User.find(current_user.id)
+      @user.update(email: @employee.email)
       redirect_to profile_path, flash: { success: "Personal info has been updated successfully" }
     end
   end
@@ -42,15 +44,15 @@ class UserProfileController < ApplicationController
     end
 
     def address_params
-      params.require(:user).permit(:permanent_address, :current_address, :city, :state, :country, :nationality)
+      params.require(:employee).permit!
     end
 
     def job_params
-      params.require(:user).permit(:designation, :date_of_joining, :job_description)
+      params.require(:employee).permit!
     end
 
     def personal_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :date_of_birth, :profile_pic, :first_name, :last_name, :contact, :gender)
+      params.require(:employee).permit!
     end
 
 end

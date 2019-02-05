@@ -14,7 +14,9 @@ class HomeController < ApplicationController
   end
 
   def update_profile
-    if @user.update(user_params)
+    if @employee.update(employee_params)
+      @user = User.find(current_user.id)
+      @user.update(email: @employee.email)
       redirect_to root_path, flash: { success: "Your profile has been updated successfully!" }
     else
       render :edit_profile
@@ -28,8 +30,8 @@ class HomeController < ApplicationController
       @employee = Employee.find_by(email: current_user.email)
     end
 
-    def user_params
-      params.require(:user).permit!
+    def employee_params
+      params.require(:employee).permit!
     end
 
 end

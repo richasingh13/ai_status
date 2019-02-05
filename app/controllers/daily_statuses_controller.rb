@@ -4,7 +4,7 @@ class DailyStatusesController < ApplicationController
   before_action :set_current_employee
 
   def index
-    @daily_statuses = @employee.daily_statuses
+    @daily_statuses = @employee.daily_statuses.all
   end
 
   def show
