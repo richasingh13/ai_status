@@ -4,10 +4,10 @@
       <p><%= message %></p>
     <% end %>
   <% end %>
-  <div class="col-md-8 offset-md-2">
-    <div class="card shadow rounded-0 mt-4 mb-3">
+  <div class="col-md-12">
+    <div class="card shadow mt-4 mb-3 border-primary text-dark">
       <div class="card-body">
-        <h5 class="text-muted">Personal Information</h5>
+        <h5 class="text-muted mb-4">Personal Information</h5>
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -64,9 +64,9 @@
       </div>
     </div>
     
-    <div class="card shadow rounded-0 mt-5 mb-3">
+    <div class="card border-primary text-dark rounded-0 mt-5 mb-3">
       <div class="card-body">
-        <h5 class="text-muted">Account Information</h5>
+        <h5 class="text-muted mb-4">Account Information</h5>
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -78,9 +78,9 @@
       </div>
     </div>
 
-    <div class="card shadow rounded-0 mt-5 mb-3">
+    <div class="card border-primary text-dark rounded-0 mt-5 mb-3">
       <div class="card-body">
-        <h5 class="text-muted">Address Information</h5>
+        <h5 class="text-muted mb-4">Address Information</h5>
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -126,9 +126,9 @@
       </div>
     </div>
 
-    <div class="card shadow rounded-0 mt-5 mb-3">
+    <div class="card border-primary text-dark rounded-0 mt-5 mb-3">
       <div class="card-body">
-        <h5 class="text-muted">Employeement Information</h5>
+        <h5 class="text-muted mb-4">Employeement Information</h5>
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -196,6 +196,7 @@
     <div class="row">
       <div class="col-12 mb-5">
         <%= f.submit class: "btn btn-primary rounded-0 shadow"  %>
+        <%= link_to 'Cancel', admin_employees_path, class: "btn btn-dark rounded-0" %>
       </div>
     </div>
   </div>

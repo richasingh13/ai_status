@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10 offset-1">
+    <div class="col-md-12">
       <%= form_for [:admin, reference_person] do |form| %>
         <% if reference_person.errors.any? %>
           <div id="error_explanation">
@@ -14,7 +14,7 @@
           </div>
         <% end %>
         <%= form.hidden_field :employee_id, value: @employee.id %>
-        <div class="card shadow rounded-0">
+        <div class="card border-primary text-dark rounded-0">
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
