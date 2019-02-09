@@ -1,4 +1,4 @@
-class Admin::EmployeesController < ApplicationController
+class Admin::EmployeesController < AdminController
   load_and_authorize_resource
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
@@ -11,6 +11,20 @@ class Admin::EmployeesController < ApplicationController
     @education_credentials = @employee.education_credentials
     @reference_people = @employee.reference_people
     @documents = @employee.documents
+    
+  end
+
+  def get_employee_profile
+    @employee = Employee.find(params[:employee])
+      respond_to do |format|
+        format.html
+        format.pdf do
+          pdf = EmployeePdf.new(@employee)
+          send_data pdf.render, filename: "employee.pdf",
+          type: "application/pdf",
+          disposition: "inline"
+        end
+      end
   end
 
   def new

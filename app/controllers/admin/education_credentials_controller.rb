@@ -1,4 +1,4 @@
-class Admin::EducationCredentialsController < ApplicationController
+class Admin::EducationCredentialsController < AdminController
   load_and_authorize_resource
   before_action :set_education_credential, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!

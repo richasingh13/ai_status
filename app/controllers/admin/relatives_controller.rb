@@ -1,4 +1,4 @@
-class Admin::RelativesController < ApplicationController
+class Admin::RelativesController < AdminController
   load_and_authorize_resource
   before_action :set_relative, only: [:show, :edit, :update, :destroy]
   before_action :set_employee, only: [:show, :edit, :new]

@@ -76,6 +76,9 @@ gem 'jquery-ui-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'country_select', '~> 4.0'
 gem 'cancancan', '~> 2.0'
+gem 'prawn'
+gem 'prawn-table'
+
 
 
 

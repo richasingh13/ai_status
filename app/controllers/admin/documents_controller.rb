@@ -1,4 +1,4 @@
-class Admin::DocumentsController < ApplicationController
+class Admin::DocumentsController < AdminController
   load_and_authorize_resource
   before_action :set_document, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!

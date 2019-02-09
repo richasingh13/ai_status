@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
    namespace :admin do
+    get 'dashboard' => "sites#dashboard"
     resources :daily_statuses
     resources :users, only: [:show, :index, :destroy]
     resources :education_credentials
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
     resources :reference_people
     resources :employees
     resources :documents
+    get '/get-employee-profile' => "employees#get_employee_profile"
+
   end   
   
   # non-resource custom routes

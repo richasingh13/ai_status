@@ -1,4 +1,4 @@
-class Admin::ReferencePeopleController < ApplicationController
+class Admin::ReferencePeopleController < AdminController
   load_and_authorize_resource
   before_action :set_reference_person, only: [:show, :edit, :update, :destroy]
   before_action :set_employee, only: [:show, :edit, :new]

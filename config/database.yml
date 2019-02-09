@@ -8,12 +8,12 @@ default: &default
 
 development:
   <<: *default
-  database: aistatus_dev
+  database: ai_status_dev
 
 test:
   <<: *default
-  database: aistatus_test
+  database: ai_status_test
 
 production:
   <<: *default
-  database: aistatus_prod
+  database: ai_status_prod
