@@ -16,4 +16,12 @@ class ApplicationController < ActionController::Base
       root_url   
     end
   end
+
+
+  layout :determine_layout
+
+  def determine_layout
+    module_name = self.class.to_s.split("::").first
+    return (module_name.eql?("Devise") ? "devise_user" : "application")
+  end
 end

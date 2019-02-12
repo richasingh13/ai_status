@@ -1,36 +1,67 @@
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-md-6 mx-md-auto">
-      <div class="card shadow">
-        <h2 class="card-header text-center">Log in</h2>
-        <div class="card-body">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="form-group">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-            </div>
-
-            <% if devise_mapping.rememberable? -%>
-              <div class="form-group">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
+<section class="login p-fixed d-flex text-center bg-primary common-img-bg">
+  <!-- Container-fluid starts -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- Authentication card start -->
+        <div class="login-card card-block auth-body mr-auto ml-auto">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "md-float-material"}) do |f| %>
+              <div class="text-center">
+                <%= image_tag "logo.png", alt: "logo" %>
               </div>
-            <% end -%>
-
-            <div class="actions">
-              <%= f.submit "Log in", class: "btn btn-primary float-right" %>
-            </div>
+              <div class="auth-box">
+                  <div class="row m-b-20">
+                    <div class="col-md-12">
+                      <h3 class="text-left txt-primary">Sign In</h3>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="input-group">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Your Email Address" %>
+                    <span class="md-line"></span>
+                  </div>
+                  <div class="input-group">
+                    <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password" %>
+                    <span class="md-line"></span>
+                  </div>
+                  <div class="row m-t-25 text-left">
+                    <div class="col-12">
+                      <div class="checkbox-fade fade-in-primary d-">
+                        <label>
+                          <%= f.check_box :remember_me %>
+                          <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                          <span class="text-inverse">Remember me</span>
+                        </label>
+                      </div>
+                      <div class="forgot-phone text-right f-right">
+                        <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-right f-w-600 text-inverse"%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row m-t-30">
+                    <div class="col-md-12">
+                      <%= f.submit "Sign in", class: "btn btn-primary btn-md btn-block waves-effect text-center m-b-20" %>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <p class="text-inverse text-left m-b-0">Thank you and enjoy our website.</p>
+                      <p class="text-inverse text-left"><b>Your Authentication Team</b></p>
+                    </div>
+                    <div class="col-md-2">
+                      <%= image_tag "Logo-small-bottom.png" %>
+                    </div>
+                  </div>
+              </div>
           <% end %>
-
-          <%= render "users/shared/links" %>
+          <!-- end of form -->
         </div>
+        <!-- Authentication card end -->
       </div>
+      <!-- end of col-sm-12 -->
     </div>
+    <!-- end of row -->
   </div>
-</div>
-
+  <!-- end of container-fluid -->
+</section>

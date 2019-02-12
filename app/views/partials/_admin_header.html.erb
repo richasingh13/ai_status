@@ -119,9 +119,12 @@
               </a>
             </li>
             <li>
-              <a href="auth-normal-sign-in.html">
-                <i class="ti-layout-sidebar-left"></i> Logout
-              </a>
+            <% if user_signed_in? %>
+              <i class="ti-layout-sidebar-left"></i>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-dark" %>
+            <% else %>
+              <%= link_to "Login", new_user_session_path, class: "text-dark" %>
+            <% end %>
             </li>
           </ul>
         </li>

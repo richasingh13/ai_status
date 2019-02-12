@@ -1,0 +1,13 @@
+//= require admin/jquery.min
+//= require rails-ujs
+//= require admin/jquery-ui.min
+//= require admin/popper.min
+//= require admin/bootstrap.min
+//= require admin/jquery.slimscroll
+//= require admin/modernizr
+//= require admin/css-scrollbars
+//= require admin/i18next.min
+//= require admin/i18nextXHRBackend.min
+//= require admin/i18nextBrowserLanguageDetector.min
+//= require admin/jquery-i18next.min
+//= require admin/common-pages
