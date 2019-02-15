@@ -16,3 +16,5 @@
 //= require admin/vertical-layout.min
 //= require admin/custom-dashboard
 //= require admin/script
+//= require bootstrap-datepicker
+//= require jquery.timepicker

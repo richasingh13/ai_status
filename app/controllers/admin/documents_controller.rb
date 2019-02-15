@@ -71,7 +71,9 @@ class Admin::DocumentsController < AdminController
     end
 
     def set_employee
-      @employee = Employee.find(params[:employee_id])
+      if params[:employee_id].present?        
+        @employee = Employee.find(params[:employee_id])
+      end
     end
 
     def set_employee_for_form

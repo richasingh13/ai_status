@@ -6,7 +6,7 @@ class Admin::DailyStatusesController < AdminController
   # GET /daily_statuses
   # GET /daily_statuses.json
   def index
-    @daily_statuses = current_user.daily_statuses
+    @daily_statuses = DailyStatus.all
   end
 
   # GET /daily_statuses/1

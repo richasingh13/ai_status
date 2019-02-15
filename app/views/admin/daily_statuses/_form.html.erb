@@ -36,12 +36,13 @@
                 <%= f.text_field :break, class: "form-control rounded-0", value: "30 Minutes" %>
               </div>
             </div>
-             <div class="col-md-6">
+            <div class="col-md-6">
               <%= f.label :status_date %>
                 <div class="input-group mb-3">
-                  <%= f.text_field :status_date, class: "form-control rounded-0 datepicker","aria-describedby" => "basic-addon2" %>
+                  <%= f.text_field :status_date, class: "form-control rounded-0 datepicker", 
+                  "aria-describedby" => "basic-addon2" %>
                   <div class="input-group-append">
-                    <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar"></i></span>
+                   <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                   </div>
               </div>
             </div>

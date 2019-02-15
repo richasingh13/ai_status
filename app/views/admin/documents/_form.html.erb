@@ -14,9 +14,16 @@
       </div>
       <% end %>
       <div class="alert alert-primary rounded-0" role="alert">
-        <%= form.hidden_field :employee_id, value: @employee.id %>
         <div class="card shadow rounded-0">
           <div class="card-body">
+            <% if @employee.present? %>
+              <%= form.hidden_field :employee_id, value: @employee.id %>
+            <% else %>
+              <div class="form-group">
+                <%= form.label :employee %>
+                <%= form.select :employee_id, options_for_select(get_all_employee), { prompt: "Select Employee" }, { class: "form-control rounded-0" } %>
+              </div>
+            <% end %>
             <div class="form-group">
               <%= form.label :document_name %>
               <%= form.text_field :document_name, class: "form-control rounded-0" %>
