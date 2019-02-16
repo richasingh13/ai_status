@@ -10,7 +10,6 @@
             <th>Out time</th>
             <th>Break</th>
             <th>Total Hours</th>
-            <th>view employee status</th>
             <th colspan="3">Actions</th>
           </tr>
         </thead>
@@ -22,7 +21,6 @@
               <td><%= daily_status.out_time %></td>
               <td><%= daily_status.break %></td>
               <td><%= daily_status.total_working_hours %></td>
-              <td><%=  %></td>
               <td><%= link_to 'Show', daily_status %></td>
               <td><%= link_to 'Edit', edit_admin_daily_status_path(daily_status) %></td>
               <td><%= link_to 'Destroy', admin_daily_status_path(daily_status), method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -37,6 +35,6 @@
   </div>
 <% else %>
   <div class="alert alert-danger">
-    <p>You are not authorized to access this page.</p>
+    <p>You are not authorized to access this</p>
   </div>
 <% end %>
