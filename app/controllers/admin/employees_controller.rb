@@ -1,5 +1,6 @@
 class Admin::EmployeesController < AdminController
-  load_and_authorize_resource
+  load_and_authorize_resource 
+  skip_authorize_resource only: :daily_status
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -16,15 +17,15 @@ class Admin::EmployeesController < AdminController
 
   def get_employee_profile
     @employee = Employee.find(params[:employee])
-      respond_to do |format|
-        format.html
-        format.pdf do
-          pdf = EmployeePdf.new(@employee)
-          send_data pdf.render, filename: "employee.pdf",
-          type: "application/pdf",
-          disposition: "inline"
-        end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = EmployeePdf.new(@employee)
+        send_data pdf.render, filename: "employee.pdf",
+        type: "application/pdf",
+        disposition: "inline"
       end
+    end
   end
 
   def new
@@ -67,6 +68,11 @@ class Admin::EmployeesController < AdminController
       format.html { redirect_to admin_employees_path, notice: 'Employee was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def daily_status
+    @employee = Employee.find(params[:id])
+    @daily_statuses =  @employee.daily_statuses
   end
 
   private

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <% if @employee.daily_statuses.present? %>
+      <h3 class="mb-4 ml-5"> Status Summary for <%= @employee.name%> </h3>
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>In time</th>
+                <th>Out time</th>
+                <th>Break</th>
+                <th>Status Date</th>
+                <th>Total Hours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @daily_statuses.each do |daily_status| %>
+              <tr>
+                <td><%= daily_status.in_time %></td>
+                <td><%= daily_status.out_time %></td>
+                <td><%= daily_status.break %></td>
+                <td><%= daily_status.status_date %></td>
+                <td><%= daily_status.total_working_hours %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>  
+      </div>
+    <% else %>
+    <div class="col-md-12"> 
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="text-center p-3"> No status summary found for <%= @employee.name.titleize%></h5>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

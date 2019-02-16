@@ -17,7 +17,7 @@ class HomeController < ApplicationController
     if @employee.update(employee_params)
       @user = User.find(current_user.id)
       @user.update(email: @employee.email)
-      redirect_to root_path, flash: { success: "Your profile has been updated successfully!" }
+      redirect_to profile_path, flash: { success: "Your profile has been updated successfully!" }
     else
       render :edit_profile
     end

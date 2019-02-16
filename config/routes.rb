@@ -14,7 +14,11 @@ Rails.application.routes.draw do
     resources :education_credentials
     resources :relatives
     resources :reference_people
-    resources :employees
+    resources :employees do 
+      member do 
+        get :daily_status
+      end
+    end
     resources :documents
     get '/get-employee-profile' => "employees#get_employee_profile"
 

@@ -7,60 +7,70 @@
     <ul class="pcoded-item pcoded-left-item">
       <li class="pcoded-hasmenu active pcoded-trigger">
         <%= link_to admin_dashboard_path do %>
-          <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-          <span class="pcoded-mtext">Dashboard</span>
-          <span class="pcoded-mcaret"></span>
+        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+        <span class="pcoded-mtext">Dashboard</span>
+        <span class="pcoded-mcaret"></span>
         <% end %>
       </li>
     </ul>
     <div class="pcoded-navigation-label">Employee</div>
-    <ul class="pcoded-item pcoded-left-item">
-      <li class="pcoded-hasmenu">
-        <a href="javascript:void(0)">
-          <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i><b>BC</b></span>
-          <span class="pcoded-mtext">Employees</span>
-          <span class="pcoded-mcaret"></span>
-        </a>
-        <ul class="pcoded-submenu">
-          <li class=" ">
-            <%= link_to admin_employees_path do %>
+      <ul class="pcoded-item pcoded-left-item">
+        <li class="pcoded-hasmenu">
+          <a href="javascript:void(0)">
+            <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i><b>BC</b></span>
+            <span class="pcoded-mtext">Employees</span>
+            <span class="pcoded-mcaret"></span>
+          </a>
+          <ul class="pcoded-submenu">
+            <li class=" ">
+              <%= link_to admin_employees_path do %>
               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
               <span class="pcoded-mtext">Employees</span>
               <span class="pcoded-mcaret"></span>
-            <% end %>
-          </li>
-          <li class=" ">
-            <%= link_to admin_relatives_path do %>
+              <% end %>
+            </li>
+            <li class=" ">
+              <%= link_to admin_relatives_path do %>
               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
               <span class="pcoded-mtext">Employee Relatives</span>
               <span class="pcoded-mcaret"></span>
-            <% end %>
-          </li>
-          <li class=" ">
-            <%= link_to admin_education_credentials_path do %>
+              <% end %>
+            </li>
+            <li class=" ">
+              <%= link_to admin_education_credentials_path do %>
               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
               <span class="pcoded-mtext">Employee Education Credentials</span>
               <span class="pcoded-mcaret"></span>
-            <% end %>
-          </li>
-          <li class=" ">
-            <%= link_to admin_reference_people_path do %>
+              <% end %>
+            </li>
+            <li class=" ">
+              <%= link_to admin_reference_people_path do %>
               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
               <span class="pcoded-mtext">Employee References</span>
               <span class="pcoded-mcaret"></span>
-            <% end %>
-          </li>
-          <li class=" ">
-            <%= link_to admin_documents_path do %>
+              <% end %>
+            </li>
+            <li class=" ">
+              <%= link_to admin_documents_path do %>
               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
               <span class="pcoded-mtext">Employee Documents</span>
               <span class="pcoded-mcaret"></span>
-            <% end %>
-          </li>
-        </ul>
-      </li>
-    </ul>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="pcoded-item pcoded-left-item">
+        <%= link_to admin_daily_statuses_path do %>
+        <li class="pcoded-hasmenu">
+         <span class="pcoded-micon"><i class="ti-check-box"></i><b>T</b></span>
+         <span class="pcoded-mtext">Daily Status</span>
+         <span class="pcoded-mcaret"></span>
+         <% end %>
+       </li>
+     </ul>
   </div>
 </nav>
+
 
 

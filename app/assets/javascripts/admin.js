@@ -18,3 +18,5 @@
 //= require admin/script
 //= require bootstrap-datepicker
 //= require jquery.timepicker
+//= require admin/jquery.dataTables.min
+//= require admin/dataTables.buttons.min
