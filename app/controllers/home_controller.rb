@@ -28,6 +28,9 @@ class HomeController < ApplicationController
    
     def set_current_employee
       @employee = Employee.find_by(email: current_user.email)
+
+      puts @employee.email
+      puts current_user.email
     end
 
     def employee_params
