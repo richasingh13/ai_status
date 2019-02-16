@@ -1,5 +1,7 @@
 class Employee < ApplicationRecord
 
+  paginates_per 1
+
   validates :email, presence: true, uniqueness: true
 
   has_many :documents
