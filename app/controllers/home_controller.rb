@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   before_action :set_current_employee
   
   def index
-    @daily_statuses = @employee.daily_statuses
+    @daily_statuses = DailyStatus.where(employee_id: @employee.id) 
   end
 
   def profile
