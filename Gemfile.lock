@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: 8daa87a0389d380f7c9fd7ea9cb5bda634d5dc7d
+  branch: 8daa87a0389d380f7c9fd7ea9cb5bda634d5dc7d
+  specs:
+    ransack (2.1.0)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -283,6 +294,7 @@ DEPENDENCIES
   prawn-table
   puma (~> 3.11)
   rails (~> 5.2.2)
+  ransack!
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

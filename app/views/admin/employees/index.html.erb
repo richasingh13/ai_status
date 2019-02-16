@@ -1,32 +1,108 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-  <h3 class="text-center mb-4">Employees</h3>
-  <div class="table-responsive">
-    <table class="table table-hover"> 
-      <thead>
-        <tr>
-          <th>Profile pic</th>
-          <th>Name</th>
-          <th>View Daily Status</th>
-          <th colspan="3">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @employees.each do |employee| %>
-          <tr>
-            <td><%= image_tag "user-dummy.png", width: "40", class: "rounded-circle" %></td>
-            <td><%= employee.name %></td>
-            <td><%= link_to "Status History", daily_status_admin_employee_path(employee), class: "badge badge-primary" %></td>
-            <td><%= link_to 'Show', admin_employee_path(employee) %></td>
-            <td><%= link_to 'Edit', edit_admin_employee_path(employee) %></td>
-            <td><%= link_to 'Destroy', admin_employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div> 
-  <div class="mt-5">
-    <%= link_to 'New Employee', new_admin_employee_path, class: "btn btn-primary mb-5 ml-3 rounded-0" %>
-  </div>  
-</div>
+  <div class="row">
+    <h3 class="text-center mb-4">Employees</h3>
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <%= search_form_for @q, url: :admin_employees do |f| %>
+            <div class="form-group row">
+              <div class="col-md-4">
+                <%= f.label 'First Name' %>
+                <%= f.search_field :first_name_cont, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label 'Last Name' %>
+                <%= f.search_field :last_name_cont, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label 'Email' %>
+                <%= f.search_field :email_cont, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-4">
+                <%= f.label 'Gender' %>
+                <%= f.search_field :gender_cont, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label 'Marital Status' %>
+                <%= f.search_field :marital_status_cont, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label 'Address' %>
+                <%= f.search_field :current_address_or_permanent_address_cont, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-4">
+                <%= f.label 'City' %>
+                <%= f.search_field :city_cont, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label 'State' %>
+                <%= f.search_field :state_cont, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label 'Country' %>
+                <%= f.search_field :country_cont, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-3">
+                <%= f.label 'Skype username' %>
+                <%= f.search_field :skype_username_cont, class: "form-control" %>
+              </div>
+              <div class="col-md-3">
+                <%= f.label 'GIT username' %>
+                <%= f.search_field :github_username_cont, class: "form-control" %>
+              </div>
+              <div class="col-md-3">
+                <%= f.label 'Aadhar UID' %>
+                <%= f.search_field :aadhar_uid_cont, class: "form-control" %>
+              </div>
+              <div class="col-md-3">
+                <%= f.label 'Pan UID' %>
+                <%= f.search_field :pan_uid_cont, class: "form-control" %>
+              </div>
+            </div>
+            <div class="search-actions">
+              <%= f.submit class: "btn btn-primary" %>
+              <%= link_to "Refresh", admin_employees_path, class: "btn btn-secondary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table table-hover"> 
+          <thead>
+            <tr>
+              <th>Profile pic</th>
+              <th>Name</th>
+              <th>View Daily Status</th>
+              <th colspan="3">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @employees.each do |employee| %>
+              <tr>
+                <td><%= image_tag "user-dummy.png", width: "40", class: "rounded-circle" %></td>
+                <td><%= employee.name %></td>
+                <td><%= link_to "Status History", daily_status_admin_employee_path(employee), class: "badge badge-primary" %></td>
+                <td><%= link_to 'Show', admin_employee_path(employee) %></td>
+                <td><%= link_to 'Edit', edit_admin_employee_path(employee) %></td>
+                <td><%= link_to 'Destroy', admin_employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div> 
+    </div>
+    <div class="mt-5">
+      <%= link_to 'New Employee', new_admin_employee_path, class: "btn btn-primary mb-5 ml-3 rounded-0" %>
+    </div>  
+  </div>
+  </div>
 
