@@ -3,7 +3,7 @@ class DailyStatus < ApplicationRecord
   validates :in_time, :out_time, presence: true
 
   belongs_to :employee, optional: true
-  has_many :tasks, inverse_of: :daily_status
+  has_many :tasks, inverse_of: :daily_status, dependent: :destroy
   accepts_nested_attributes_for :tasks, reject_if: :all_blank, allow_destroy: true
 
   def total_working_hours
