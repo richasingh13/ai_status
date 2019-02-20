@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 mx-md-auto">
+      <div class="card shadow rounded-0 mb-4">
+        <div class="card-body">
+          <p>
+            <strong>Name:</strong>
+            <%= @trainee.name %>
+          </p>
+          <p>
+            <strong>Email:</strong>
+            <%= @trainee.email %>
+          </p>
+          <p>
+            <strong>Contact number:</strong>
+            <%= @trainee.contact_number %>
+          </p>
+          <p>
+            <strong>Date of birth:</strong>
+            <%= @trainee.date_of_birth %>
+          </p>
+          <p>
+            <strong>Local address:</strong>
+            <%= @trainee.local_address %>
+          </p>
+          <p>
+            <strong>Permanent address:</strong>
+            <%= @trainee.permanent_address %>
+          </p>
+          <p>
+            <strong>College:</strong>
+            <%= @trainee.college %>
+          </p>
+          <p>
+            <strong>Semester:</strong>
+            <%= @trainee.semester %>
+          </p>
+          <p>
+            <strong>Year:</strong>
+            <%= @trainee.year %>
+          </p>
+          <p>
+            <strong>Profile photo:</strong>
+            <%= @trainee.profile_photo %>
+          </p>
+          <p>
+            <strong>Gender:</strong>
+            <%= @trainee.gender %>
+          </p>
+          <p>
+            <strong>Joining date:</strong>
+            <%= @trainee.joining_date %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <%= link_to 'Edit', edit_admin_trainee_path(@trainee), class: "btn btn-info" %> |
+        <%= link_to 'Back', admin_trainees_path, class: "btn btn-dark" %>
+

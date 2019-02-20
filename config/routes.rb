@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trainees
   #resources :reference_people
   resources :relatives
   resources :education_credentials
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
     resources :education_credentials
     resources :relatives
     resources :reference_people
+    resources :trainees
     resources :employees do 
       member do 
         get :daily_status

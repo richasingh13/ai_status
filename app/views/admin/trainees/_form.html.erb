@@ -1,0 +1,140 @@
+<%= form_for [:admin, trainee] do |form| %>
+<% if trainee.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(trainee.errors.count, "error") %> prohibited this trainee from being saved:</h2>
+
+  <ul>
+    <% trainee.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="container">
+  <div class="col-md-8 mx-md-auto">
+    <div class="card">
+      <div class="card-body"> 
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :name %>
+              <%= form.text_field :name, class: "form-control rounded-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :email %>
+              <%= form.text_field :email, class: "form-control rounded-0" %>
+            </div>
+          </div>  
+        </div>  
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :contact_number %>
+              <%= form.text_field :contact_number, class: "form-control rounded-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :date_of_birth %>
+            <div class="input-group mb-3">
+              <%= form.text_field :date_of_birth, class: "form-control datepicker rounded-0","aria-describedby" => "basic-addon2" %>
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :local_address %>
+              <%= form.text_field :local_address, class: "form-control rounded-0", placeholder: "Trainee Address", required: true, id: "autocomplete", onFocus: "geolocate()" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :permanent_address %>
+              <%= form.text_field :permanent_address, class: "form-control rounded-0", placeholder: "Trainee Address", required: true, id: "autocomplete2", onFocus: "geolocate()" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :college %>
+              <%= form.text_field :college, class: "form-control rounded-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :semester %>
+              <%= form.text_field :semester, class: "form-control rounded-0" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= form.label :year %>
+            <div class="input-group mb-3">
+              <%= form.text_field :year, class: "form-control datepicker rounded-0","aria-describedby" => "basic-addon2" %>
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :profile_photo %>
+              <%= form.file_field :profile_photo %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :gender %>
+              <%= form.text_field :gender, class: "form-control rounded-0" %>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <%= form.label :joining_date %>
+            <div class="input-group mb-3">
+              <%= form.text_field :joining_date, class: "form-control datepicker rounded-0","aria-describedby" => "basic-addon2" %>
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="actions mt-3">
+                <%= form.submit class: "btn btn-primary rounded-0"%>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function () {
+    $(".datepicker").datepicker({ 
+      autoclose: true, 
+      todayHighlight: true, 
+      format: "dd/mm/yyyy"
+    }).datepicker('update', new Date());
+  });
+
+</script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFBYM37YGMTdgkEp9fipPljSjprTDZL8Y&libraries&libraries=places&callback=initAutocomplete"
+async defer></script>

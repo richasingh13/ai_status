@@ -20,3 +20,4 @@
 //= require jquery.timepicker
 //= require admin/jquery.dataTables.min
 //= require admin/dataTables.buttons.min
+//= require admin/custom
