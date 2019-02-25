@@ -2,7 +2,9 @@ class Admin::TraineesController < AdminController
   before_action :set_trainee, only: [:show, :edit, :update, :destroy]
   
   def index
-    @trainees = Trainee.all
+    #@trainees = Trainee.all
+    @q = Trainee.ransack(params[:q])
+    @trainees = @q.result(distinct: true).page params[:page]
   end
 
   def show

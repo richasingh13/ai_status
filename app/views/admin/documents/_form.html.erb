@@ -1,52 +1,41 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <%= form_for [:admin, document] do |form| %>
-      <% if document.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
+<%= form_for [:admin, document] do |form| %>
+<% if document.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
 
-        <ul>
-          <% document.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-      <% end %>
-      <div class="alert alert-primary rounded-0" role="alert">
-        <div class="card shadow rounded-0">
-          <div class="card-body">
-            <% if @employee.present? %>
-              <%= form.hidden_field :employee_id, value: @employee.id %>
-            <% else %>
-              <div class="form-group">
-                <%= form.label :employee %>
-                <%= form.select :employee_id, options_for_select(get_all_employee), { prompt: "Select Employee" }, { class: "form-control rounded-0" } %>
-              </div>
-            <% end %>
-            <div class="form-group">
-              <%= form.label :document_name %>
-              <%= form.text_field :document_name, class: "form-control rounded-0" %>
-            </div>
-            <div class="form-group">
-              <%= form.label :document_type %>
-              <%= form.select :document_type, options_for_select(Document::DOCUMENT_TYPE, selected: document.document_type), { prompt: "Select Document Type" }, { class: "form-control rounded-0" } %>
-            </div>
-            <div class="form-group">
-              <%= form.label :attachment %><br>
-              <%= form.file_field :attachment, id: "avatar-upload" %>
-              <img id="img_prev" class="img-thumbnail hidden mt-3"/>
-            </div>
-            <div class="actions">
-              <%= form.submit class: "btn btn-primary rounded-0 mt-3"%>
-            </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ul>
+    <% document.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
 </div>
+<% end %>
+<% if @employee.present? %>
+  <%= form.hidden_field :employee_id, value: @employee.id %>
+<% else %>
+<div class="form-group">
+  <%= form.label :employee %>
+  <%= form.select :employee_id, options_for_select(get_all_employee), { prompt: "Select Employee" }, { class: "form-control rounded-0" } %>
+</div>
+<% end %>
+<div class="form-group">
+  <%= form.label :document_name %>
+  <%= form.text_field :document_name, class: "form-control rounded-0" %>
+</div>
+<div class="form-group">
+  <%= form.label :document_type %>
+  <%= form.select :document_type, options_for_select(Document::DOCUMENT_TYPE, selected: document.document_type), { prompt: "Select Document Type" }, { class: "form-control rounded-0" } %>
+</div>
+<div class="form-group">
+  <%= form.label :attachment %><br>
+  <%= form.file_field :attachment, id: "avatar-upload" %>
+  <img id="img_prev" class="img-thumbnail hidden mt-3"/>
+</div>
+<div class="actions">
+  <%= form.submit class: "btn btn-primary rounded-0 mt-3"%>
+</div>
+<% end %>
+
 
 
 <script type="text/javascript">

@@ -1,67 +1,56 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <%= form_for [:admin, education_credential] do |form| %>
-        <% if education_credential.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(education_credential.errors.count, "error") %> prohibited this education_credential from being saved:</h2>
-            <ul>
-              <% education_credential.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <div class="card rounded-0 text-dark border-primary">
-          <div class="card-body">
-             <% if @employee.present? %>
-              <%= form.hidden_field :employee_id, value: @employee.id %>
-            <% else %>
-              <div class="form-group">
-                <%= form.label :employee %>
-                <%= form.select :employee_id, options_for_select(get_all_employee), { prompt: "Select Employee" }, { class: "form-control rounded-0" } %>
-              </div>
-            <% end %>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= form.label :course %>
-                  <%= form.text_field :course, class: "form-control rounded-0" %>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= form.label :university %>
-                  <%= form.text_field :university, class: "form-control rounded-0" %>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= form.label :percentage %>
-                  <%= form.text_field :percentage, class: "form-control rounded-0" %>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= form.label :course_type %>
-                  <%= form.text_field :course_type, class: "form-control rounded-0" %>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="actions">
-                  <%= form.submit class: "btn btn-primary rounded-0 ml-3" %>
-                  <%= link_to 'Back', admin_employee_path(@employee), class: "btn btn-dark ml-2 rounded-0" if @employee.present? %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
+<%= form_for [:admin, education_credential] do |form| %>
+<% if education_credential.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(education_credential.errors.count, "error") %> prohibited this education_credential from being saved:</h2>
+  <ul>
+    <% education_credential.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<% if @employee.present? %>
+<%= form.hidden_field :employee_id, value: @employee.id %>
+<% else %>
+  <div class="form-group">
+    <%= form.label :employee %>
+    <%= form.select :employee_id, options_for_select(get_all_employee), { prompt: "Select Employee" }, { class: "form-control rounded-0" } %>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= form.label :course %>
+      <%= form.text_field :course, class: "form-control rounded-0" %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= form.label :university %>
+      <%= form.text_field :university, class: "form-control rounded-0" %>
     </div>
   </div>
 </div>
-
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= form.label :percentage %>
+      <%= form.text_field :percentage, class: "form-control rounded-0" %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= form.label :course_type %>
+      <%= form.text_field :course_type, class: "form-control rounded-0" %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="actions">
+      <%= form.submit class: "btn btn-primary rounded-0" %>
+      <%= link_to 'Back', admin_employee_path(@employee), class: "btn btn-dark rounded-0" if @employee.present? %>
+    </div>
+  </div>
+</div>
+<% end %>

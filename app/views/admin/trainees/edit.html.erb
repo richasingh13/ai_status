@@ -1,6 +1,15 @@
-<h3 class="text-center mb-3">Editing Trainee</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card rounded-0">
+        <div class="card-body">
+          <h3 class="text-center mb-3">Editing Trainee</h3>
+          <%= render 'form', trainee: @trainee %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', trainee: @trainee %>
-
-<%= link_to 'Show', @admin_trainee, class: "btn btn-info" %> |
-<%= link_to 'Back', admin_trainees_path, class: "btn btn-dark" %>
+<%#= link_to 'Show', @admin_trainee, class: "btn btn-info" %> 
+<%#= link_to 'Back', admin_trainees_path, class: "btn btn-dark" %>

@@ -1,75 +1,62 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-2">
-    <%= form_for [:admin, daily_status] do |f| %>
-      <% if daily_status.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(daily_status.errors.count, "error") %> prohibited this daily_status from being saved:</h2>
+<%= form_for [:admin, daily_status] do |f| %>
+  <% if daily_status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(daily_status.errors.count, "error") %> prohibited this daily_status from being saved:</h2>
 
-          <ul>
-            <% daily_status.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-      <div class="card shadow rounded-0">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="form-group">
-                <%= f.label :in_time %>
-                <%= f.text_field :in_time, id: "inTime", class: "form-control rounded-0" %>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <%= f.label :out_time %>
-                <%= f.text_field :out_time, id: "outTime", class: "form-control rounded-0" %>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <%= f.label :break %>
-                <%= f.text_field :break, class: "form-control rounded-0", value: "30 Minutes" %>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <%= f.label :status_date %>
-                <div class="input-group mb-3">
-                  <%= f.text_field :status_date, class: "form-control rounded-0 datepicker", 
-                  "aria-describedby" => "basic-addon2" %>
-                  <div class="input-group-append">
-                   <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="mb-2 mt-3">Tasks</h3>
-      <div id='tasks'>
-        <%= f.fields_for :tasks do |task| %>
-          <%= render "task_fields", :f => task %>
+      <ul>
+        <% daily_status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
         <% end %>
-        <div class='links'>
-          <%= link_to_add_association f, :tasks, class: "btn btn-primary rounded-0" do %>
-            <i class="mdi mdi-plus"></i>Add tasks 
-          <% end %>
-        </div>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= f.label :in_time %>
+        <%= f.text_field :in_time, id: "inTime", class: "form-control rounded-0" %>
       </div>
-
-      <div class="actions float-right mt-3">
-        <%= f.submit class: "btn btn-primary rounded-0" %>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= f.label :out_time %>
+        <%= f.text_field :out_time, id: "outTime", class: "form-control rounded-0" %>
       </div>
-      
-    <% end %>
+    </div>
   </div>
-</div>
-</div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :break %>
+        <%= f.text_field :break, class: "form-control rounded-0", value: "30 Minutes" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :status_date %>
+      <div class="input-group mb-3">
+        <%= f.text_field :status_date, class: "form-control rounded-0 datepicker", 
+        "aria-describedby" => "basic-addon2" %>
+        <div class="input-group-append">
+         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+       </div>
+     </div>
+   </div>
+  </div>
+  <h3 class="mb-2 mt-3">Tasks</h3>
+  <div id='tasks'>
+    <%= f.fields_for :tasks do |task| %>
+      <%= render "task_fields", :f => task %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association f, :tasks, class: "btn btn-primary rounded-0" do %>
+        <i class="mdi mdi-plus"></i>Add tasks 
+      <% end %>
+    </div>
+  </div>
+  <div class="actions float-right mt-3">
+    <%= f.submit class: "btn btn-primary rounded-0" %>
+  </div>
+<% end %>
 
 <script>
   $(function() {
@@ -79,10 +66,9 @@
 </script>
 <script type="text/javascript">
   $(function () {
-  $(".datepicker").datepicker({ 
-        autoclose: true, 
-        todayHighlight: true
-  }).datepicker('update', new Date());
-});
-
+    $(".datepicker").datepicker({ 
+      autoclose: true, 
+      todayHighlight: true
+    }).datepicker('update', new Date());
+  });
 </script>
