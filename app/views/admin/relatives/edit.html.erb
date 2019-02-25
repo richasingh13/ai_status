@@ -1,5 +1,13 @@
-<h3 class="text-center mb-3">Editing Relative</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <h4 class="text-center mt-2 mb-4">Editing Relative</h4>
+      <div class="card rounded-0 border-primary text-dark">
+        <div class="card-body">
+          <%= render 'form', relative: @relative %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', relative: @relative %>
-
-<%= link_to 'Show', @admin_relative, class: "btn btn-info ml-5 rounded-0 mb-5" %> 

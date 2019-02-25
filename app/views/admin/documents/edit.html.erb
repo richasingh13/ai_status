@@ -1,6 +1,16 @@
-<h3 class="text-center text-info mb-4">Editing Document</h3>
-
-<%= render 'form', document: @document %>
-
-<%= link_to 'Show', @admin_document, class: "btn btn-info ml-5 rounded-0 mb-5" %> 
-<%= link_to 'Back', admin_documents_path, class: "btn btn-dark rounded-0 mb-5" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-2">
+      <h4 class="text-center text-info mt-2 mb-4">Editing Document</h4>
+        <div class="alert alert-primary rounded-0" role="alert">
+          <div class="card shadow rounded-0">
+            <div class="card-body">
+              <%= render 'form', document: @document %>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<%#= link_to 'Show', @admin_document, class: "btn btn-info ml-5 rounded-0 mb-5" %> 
+<%#= link_to 'Back', admin_documents_path, class: "btn btn-dark rounded-0 mb-5" %>

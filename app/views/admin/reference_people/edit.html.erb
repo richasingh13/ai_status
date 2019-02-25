@@ -1,5 +1,16 @@
-<h3 class="ml-3 mb-4">Editing Reference Person</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="ml-3 mb-4 text-center">Editing Reference Person</h4>
+        <div class="card border-primary text-dark rounded-0">
+          <div class="card-body">
+            <%= render 'form', reference_person: @reference_person %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', reference_person: @reference_person %>
 
-<%= link_to 'Show', admin_employee_path(@employee), class: "btn btn-info ml-5 rounded-0 mb-5" %>
+
+
